@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" manifest="cache.manifest">
+<html lang="en" manifest="cache.manifest">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -26,7 +26,7 @@ box-shadow:0 20px 70px rgba(0,94,255,.16),inset 0 0 30px rgba(53,151,255,.06)}
 .sub{margin-top:5px;color:#7390ad;font-size:12px;letter-spacing:.32em;text-transform:uppercase;margin-bottom: 5px;}
 .stage{margin:25px auto 0;max-width:560px}
 #state{font-size:19px;font-weight:650;letter-spacing:.03em;margin-bottom:8px}
-#det {font-size:12px;color:#71869d;min-height:18px}
+#det{font-size:12px;color:#71869d;min-height:18px}
 #det b{color:#b9d9f7;font-weight:600}
 .progress{height:5px;margin:18px 0 12px;border-radius:99px;background:#101a26;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.025)}
 #bar{width:4%;height:100%;border-radius:99px;background:linear-gradient(90deg,#168cff,#63c4ff);transition:width .28s ease;box-shadow:0 0 18px rgba(45,164,255,.7)}
@@ -90,34 +90,35 @@ box-shadow:0 20px 70px rgba(0,94,255,.16),inset 0 0 30px rgba(53,151,255,.06)}
 
     var bug = null, why = "";
     var forced = params.get("bug");
+    
+    // تم حذف الشروط القديمة التي كانت تحول الأجهزة لـ Raw Game تلقائياً
     if (forced === "lapse" || forced === "poops") {
         bug = forced; why = "forced via ?bug=" + forced;
     } else if (!key) {
         why = "user-agent is not a PlayStation 4";
     } else if (fwnum <= 900) {
+        // توجيه أوتوماتيكي لمجلد الـ 9.00 الموجود عندك في الهوست
         bug = "local_900"; why = "توجيه تلقائي لإصدار " + key;
-    } else if (fwnum > 900 && fwnum <= 1300) {
-        // تفعيل الفحص التلقائي وتغيير وضع الثغرة ليتوافق مع رابط المطورين الجديد والمستقر
-        bug = "webkit_1300"; why = "توجيه تلقائي لإصدار " + key;
     } else {
-        why = key + " -- no working bug";
+        // أي سوفت أعلى (مثل 13.00) يفتح القائمة اليدوية للأزرار لمتجرك لخدمة المحل بدون أخطاء خارجية
+        why = "إصدار " + key + " - يفتح القائمة اليدوية";
     }
 
     detEl.innerHTML = "Firmware <b>" + (key || "unknown") + "</b>"
         + " &nbsp;•&nbsp; Mode <b>" + (bug || "none") + "</b>";
 
     if (!bug) {
-        setProgress(0);
-        setCache(why, false);
-        setState("UNSUPPORTED FIRMWARE", "bad");
+        // إذا كان الجهاز على سوفت 13.00 فإنه لن يحول لـ Raw game بل سيفتح قائمة متجرك اليدوية فورا
+        setProgress(100);
+        setCache("جاهز للتفعيل اليدوي", true);
+        setState("تعديلة ME4OO STORE المتكاملة", "warn");
+        setTimeout(function(){ location.replace("main_menu.html"); }, 1200);
         return;
     }
 
-    // تم تحديث المسار السري هنا بدقة ليتوجه فوراً لـ السيرفر الجديد والنشط لثغرة 13.00
+    // الروابط المحلية الخاصة بملفاتك أنت فقط
     var target = "";
-    if (bug === "webkit_1300") {
-        target = "https://rawgame4.github.io"; // الرابط الجديد والنشط للـ WebKit لثغرة 13.00 المحدثة
-    } else if (bug === "local_900") {
+    if (bug === "local_900") {
         target = "900goldhen/index.html"; 
     }
 
