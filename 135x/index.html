@@ -34,7 +34,7 @@
             var fwNum = parseFloat(fwStr);
             displayStatus("✅ تم اكتشاف نظام جهازك الحالي: PS4 " + fwStr);
             
-            if (fwNum >= 13.02 && fwNum <= 13.52) {
+if (fwNum <= 13.52) {
                 logMessage("🚀 يتم الآن تشغيل ثغرة الـ Jailbreak المستقرة... سيتم حقن الـ GoldHEN المحدث تلقائياً.");
                 setTimeout(function() {
                     displayStatus("📥 Loading GoldHEN Payload...");
