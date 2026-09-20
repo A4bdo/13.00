@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ME4OO PS STORE - PS4 13.02 - 13.52 Exploit Host</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body { text-align: center; padding-top: 50px; }
+        .loader { font-size: 24px; color: #00b4d8; margin-top: 20px; font-weight: bold; }
+        .status { color: #ffb703; margin-top: 10px; font-size: 18px; }
+        .shop-phone { color: #25D366; font-size: 22px; margin-top: 30px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>ME4OO PS STORE لخدمات وصيانة البلايستيشن</h1>
+    <h2 style="color: yellow;">امانه عليك تصلي على حبيبك النبي</h2>
+    
+    <div id="status" class="loader">⏳ جاري قراءة إصدار السوفتوير الفعلي للجهاز...</div>
+    <div id="log" class="status">الرجاء الانتظار، يتم الآن تهيئة ثغرة الـ WebKit للنسخ الحديثة...</div>
+    <div class="shop-phone">💬 للدعم الفني للمحل: 01002342554</div>
+
+    <!-- استدعاء ملفات الربط والـ Payload الناقصة أوفلاين -->
+    <script src="exploit.js"></script>
+    <script>
+        function displayStatus(msg) { document.getElementById("status").innerHTML = msg; }
+        function logMessage(msg) { document.getElementById("log").innerHTML = msg; }
+
+        var ua = navigator.userAgent;
+        var p4Match = ua.match(/PlayStation 4[ \/](\d+)\.(\d+)/i);
+        
+        if (p4Match) {
+            var fwStr = p4Match[1] + "." + p4Match[2];
+            var fwNum = parseFloat(fwStr);
+            displayStatus("✅ تم اكتشاف نظام جهازك الحالي: PS4 " + fwStr);
+            
+            if (fwNum >= 13.02 && fwNum <= 13.52) {
+                logMessage("🚀 يتم الآن تشغيل ثغرة الـ Jailbreak المستقرة... سيتم حقن الـ GoldHEN المحدث تلقائياً.");
+                setTimeout(function() {
+                    displayStatus("📥 Loading GoldHEN Payload...");
+                    // حقن الجولد هين الجديد برمجياً
+                    var script = document.createElement('script');
+                    script.src = 'goldhen.js';
+                    document.body.appendChild(script);
+                }, 1500);
+            } else {
+                logMessage("❌ عذراً، هذا القسم مخصص لإصدارات (13.02 - 13.52) فقط. يرجى مسح الحفظ التلقائي من الواجهة واختيار زر نظامك الصحيح.");
+            }
+        } else {
+            displayStatus("⚠️ تنبيه: يرجى فتح هذه الصفحة من متصفح جهاز الـ PS4 الفعلي.");
+            logMessage("نمط المعاينة للكمبيوتر نشط حالياً.");
+        }
+    </script>
+</body>
+</html>
