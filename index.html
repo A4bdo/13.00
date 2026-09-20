@@ -58,12 +58,12 @@
         <button class="btn" onmouseover="msgs.innerHTML='PS4 9.00 FW Host v3.0 with Automatic Exploitation - (FontFaceSet Webkit)'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('900v3/index.html')"> نظام 9.00 الإصدار | تلقائي </button>
         <br>
         
-        <!-- الزر الجديد المضاف للتعديل من 13.02 إلى 13.52 بالتصميم المتناسق -->
+        <!-- الزر المحدث بدقة لدعم نظام 13.52 الفعلي للمحل -->
         <button class="btn" onmouseover="msgs.innerHTML='PS4 13.02 - 13.52 FW New GoldHEN Host'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('135x/index.html')"> لنظام 13.02 - 13.52 </button>
-        <button class="btn" onmouseover="msgs.innerHTML='Restore a Host to User’s Guide without using DNS'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('restore/index.html')"> استعادة المضيف </button>
+        <button class="btn" onmouseover="mouseoverMsg('Restore a Host to Guide without using DNS')" onclick="saveAndRedirect('restore/index.html')"> استعادة المضيف </button>
         <br>
         
-        <!-- زر إعادة ضبط النظام المحفوظ للعودة للقائمة يدوياً -->
+        <!-- زر إعادة ضبط الحفظ التلقائي للزبائن -->
         <button id="resetFwBtn" class="reset-btn" style="display: none;" onclick="clearSavedFirmware()">🔄 تغيير النظام المحفوظ تلقائياً</button>
         <br>
 
@@ -83,13 +83,15 @@
         var savedSystemKey = 'me4oo_saved_fw_path';
         var isCacheReady = false;
 
-        // دالة حفظ الاختيار والانتقال المباشر للأنظمة
+        function mouseoverMsg(txt) {
+            document.getElementById('msgs').innerHTML = txt;
+        }
+
         function saveAndRedirect(path) {
             try { localStorage.setItem(savedSystemKey, path); } catch(e) {}
             location.replace(path);
         }
 
-        // دالة حذف المسار المحفوظ لإتاحة الاختيار اليدوي من جديد
         function clearSavedFirmware() {
             try {
                 localStorage.removeItem(savedSystemKey);
@@ -99,7 +101,6 @@
             } catch(e) {}
         }
 
-        // فحص وجود تفعيل وتوجيه تلقائي مستقر داخل ذاكرة كاش المتصفح
         function checkAutoRedirect() {
             try {
                 var savedPath = localStorage.getItem(savedSystemKey);
@@ -114,7 +115,6 @@
             } catch(e) {}
         }
 
-        // ========== منظومة الكاش والـ AppCache الآمنة والمستقرة لمنع كراش المتصفح ==========
         var appCache = window.applicationCache;
         if (appCache) {
             appCache.addEventListener('checking', function() { cacheStatus.innerHTML = '⏳ جاري فحص ملفات الهوست بالتخزين المؤقت...'; }, false);
@@ -153,7 +153,6 @@
             checkAutoRedirect();
         }
 
-        // دالات التنقل لصفحة السوشيال ميديا والدعم الفني للمحل
         function show_social(){
             document.getElementById("social_media").style.display = "block";
             document.getElementById("menu").style.display = "none";
