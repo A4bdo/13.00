@@ -1,9 +1,9 @@
-<!doctype html>
-<html lang="en" manifest="cache.appcache">
+<!DOCTYPE html>
+<html lang="ar" manifest="cache.appcache">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>أبوزين</title>
+    <title>ME4OO PS STORE - تفعيل الجيلبريك</title>
     <style>
       html,
       body {
@@ -23,26 +23,26 @@
       }
       #brand {
         text-align: center;
-        padding: 8px 10px;
+        padding: 12px 10px;
         background: rgba(14, 17, 22, 0.85);
         border-bottom: 1px solid #1e2732;
       }
       #brand img {
-        width: 28px;
-        height: 28px;
+        width: 32px;
+        height: 32px;
         margin-right: 8px;
         border-radius: 50%;
         vertical-align: middle;
       }
       #brand b {
-        font-size: 15px;
+        font-size: 18px;
         font-weight: 700;
-        letter-spacing: 0.14em;
+        letter-spacing: 0.12em;
         color: #e6ebf2;
         vertical-align: middle;
       }
 
-      /* running: a spinner under the brand. jb.js sets body.done / body.fail / body.log. */
+      /* منظومة حركة الانتظار الدائرية تحت الشعار */
       #spin {
         position: fixed;
         top: calc(50% + 20px);
@@ -51,7 +51,7 @@
         height: 46px;
         margin: -23px 0 0 -23px;
         border: 4px solid #1e2732;
-        border-top-color: #7fd0a0;
+        border-top-color: #25D366; /* تغيير اللون للون الأخضر المميز للمحل */
         border-radius: 50%;
         animation: spin 0.9s linear infinite;
       }
@@ -67,9 +67,10 @@
         right: 0;
         transform: translateY(-50%);
         text-align: center;
-        font-size: 16px;
+        font-size: 18px;
         letter-spacing: 0.5px;
         display: none;
+        font-weight: bold;
       }
       #wrap {
         padding: 0;
@@ -89,7 +90,7 @@
         display: block;
       }
 
-      /* ?log=1 -- the full step log, styled like the landing. */
+      /* التحكم في وضع السجل الكامل للاختراق (Step Log) */
       body.log #spin,
       body.log #msg {
         display: none;
@@ -117,39 +118,54 @@
         overflow-y: auto;
       }
       .ok {
-        color: #7fd0a0;
+        color: #25D366;
       }
       .bad {
-        color: #d08a7f;
+        color: #ff3333;
       }
       .warn {
-        color: #d8c07f;
+        color: #ffcc00;
       }
       .safe {
-        color: #7fd0a0;
+        color: #25D366;
       }
       .danger {
-        color: #d08a7f;
+        color: #ff3333;
       }
       code {
         color: #9fb3d0;
       }
+      .shop-contact {
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: #25D366;
+        font-size: 16px;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
+    <!-- تغيير الشعار والاسم لـ ME4OO PS STORE لضمان الخصوصية والاحترافية -->
     <div id="brand">
       <img
         src="logo.png"
-        alt="أبوزين"
-        width="28"
-        height="28"
-      /><b>أبوزين</b>
+        alt="ME4OO PS STORE"
+        width="32"
+        height="32"
+      /><b>ME4OO PS STORE</b>
     </div>
+    
     <div id="spin"></div>
     <div id="msg"></div>
     <div id="wrap">
       <div id="state"></div>
       <div id="out"></div>
     </div>
+    
+    <!-- بصمة متجرك تظل واضحة طوال عملية الحقن -->
+    <div class="shop-contact">💬 صيانة وصيانة البلايستيشن وتنزيل الألعاب: 01002342554</div>
   </body>
 </html>

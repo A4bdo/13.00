@@ -6,7 +6,7 @@
     <title>ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* تنسيقات إضافية لضمان استقرار واجهة الكاش وزر إعادة الضبط المحدث */
+        /* تنسيقات إضافية لضمان استقرار واجهة الكاش والأزرار الجديدة */
         .reset-btn {
             background-color: #ff3333;
             color: white;
@@ -50,9 +50,9 @@
         <button class="btn" onmouseover="msgs.innerHTML='PS4 7.50 - 7.55 FW Host v1.5'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('75x/index.html')"> نظام 7.50 - 7.55 الإصدار</button>
         <br>
         
-        <!-- الترتيب والتقسيم الجديد والذكي للأنظمة الحديثة -->
+        <!-- التقسيم والترتيب الاحترافي والذكي الموجه للمجلد الجديد -->
         <button class="btn" onmouseover="msgs.innerHTML='PS4 7.00 - 13.00 FW GoldHEN Host'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('g2all/index.html')"> لنظام 7.00 - 13.00 </button>
-        <button class="btn" onmouseover="msgs.innerHTML='PS4 13.02 - 13.52 FW New GoldHEN Host'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('135x/index.html')"> لنظام 13.02 - 13.52 </button>
+        <button class="btn" onmouseover="msgs.innerHTML='PS4 13.02 - 13.52 FW New GoldHEN Host'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('13.2,13.4,13.5,13.52/index.html')"> لنظام 13.02 - 13.52 </button>
         <br>
         
         <button class="btn" onmouseover="msgs.innerHTML='PS4 9.00 FW GoldHEN Host - (FontFaceSet Webkit)'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('900goldhen/index.html')"> GoldHEN لنظام 9.00 </button>
@@ -65,11 +65,11 @@
         <button class="btn" onmouseover="msgs.innerHTML='Restore a Host to User’s Guide without using DNS'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('restore/index.html')"> استعادة المضيف </button>
         <br>
         
-        <!-- زر إعادة ضبط النظام المحفوظ للعودة للقائمة يدوياً عند الحاجة -->
+        <!-- زر إعادة ضبط واختيار نظام أخر -->
         <button id="resetFwBtn" class="reset-btn" style="display: none;" onclick="clearSavedFirmware()">🔄 تغيير النظام المحفوظ تلقائياً</button>
         <br>
 
-        <button class="btn btn-onln" onmouseover="msgs.innerHTML='صل على حبيبك النبي.'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="show_social()" style="margin-top: 40px; margin-bottom: 15px; width: 468px;">اضغط هنا للتواصل والدعم الفني للمحل</button>
+        <button class="btn btn-onln" onmouseover="msgs.innerHTML='صل على حبيبك النبي.'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="show_social()" style="margin-top: 80px; margin-bottom: 15px; width: 468px;">اضغط هنا للتواصل والدعم الفني للمحل</button>
     </div>
 
     <div id="social_media" style="display: none;">
@@ -85,13 +85,15 @@
         var savedSystemKey = 'me4oo_saved_fw_path';
         var isCacheReady = false;
 
-        // دالة حفظ الاختيار والانتقال المباشر للأنظمة
+        // دالة حفظ الاختيار والانتقال المباشر
         function saveAndRedirect(path) {
-            try { localStorage.setItem(savedSystemKey, path); } catch(e) {}
+            try {
+                localStorage.setItem(savedSystemKey, path);
+            } catch(e) {}
             location.replace(path);
         }
 
-        // دالة حذف المسار المحفوظ لإتاحة الاختيار اليدوي من جديد
+        // دالة حذف المسار المحفوظ لإتاحة الاختيار من جديد
         function clearSavedFirmware() {
             try {
                 localStorage.removeItem(savedSystemKey);
@@ -101,7 +103,7 @@
             } catch(e) {}
         }
 
-        // فحص وجود تفعيل وتوجيه تلقائي مستقر داخل ذاكرة كاش المتصفح
+        // فحص وجود تفعيل وتوجيه تلقائي مستقر
         function checkAutoRedirect() {
             try {
                 var savedPath = localStorage.getItem(savedSystemKey);
@@ -109,18 +111,24 @@
                     cacheStatus.innerHTML = '🚀 تم اكتشاف نظامك المحفوظ.. جاري الدخول التلقائي المستقر...';
                     cacheStatus.className = 'status-success';
                     document.getElementById('resetFwBtn').style.display = 'inline-block';
-                    setTimeout(function() { location.replace(savedPath); }, 1000);
+                    setTimeout(function() {
+                        location.replace(savedPath);
+                    }, 1000);
                 } else if (savedPath) {
                     document.getElementById('resetFwBtn').style.display = 'inline-block';
                 }
             } catch(e) {}
         }
 
-        // ========== منظومة الكاش والـ AppCache الآمنة والمستقرة لمنع كراش المتصفح ==========
+        // ========== منظومة الكاش والـ AppCache الآمنة والمستقرة لمنع الكراش ==========
         var appCache = window.applicationCache;
         if (appCache) {
-            appCache.addEventListener('checking', function() { cacheStatus.innerHTML = '⏳ جاري فحص ملفات الهوست بالتخزين المؤقت...'; }, false);
-            appCache.addEventListener('downloading', function() { cacheStatus.innerHTML = '📥 أول زيارة: جاري تنزيل ملفات الكاش المؤقت لحماية متصفحك...'; }, false);
+            appCache.addEventListener('checking', function() {
+                cacheStatus.innerHTML = '⏳ جاري فحص ملفات الهوست بالتخزين المؤقت...';
+            }, false);
+            appCache.addEventListener('downloading', function() {
+                cacheStatus.innerHTML = '📥 أول زيارة: جاري تنزيل ملفات الكاش المؤقت لحماية متصفحك...';
+            }, false);
             appCache.addEventListener('progress', function(e) {
                 if (e && e.total) {
                     var pct = Math.round((e.loaded / e.total) * 100);
@@ -155,11 +163,12 @@
             checkAutoRedirect();
         }
 
-        // دالات التنقل لصفحة السوشيال ميديا والدعم الفني للمحل
+        // دالات التنقل لصفحة السوشيال ميديا والدعم للمحل
         function show_social(){
             document.getElementById("social_media").style.display = "block";
-                        document.getElementById("menu").style.display = "none";
+            document.getElementById("menu").style.display = "none";
         }
+
         function load_menu(){
             document.getElementById("menu").style.display = "block";
             document.getElementById("social_media").style.display = "none";
@@ -167,4 +176,3 @@
     </script>
 </body>
 </html>
-
