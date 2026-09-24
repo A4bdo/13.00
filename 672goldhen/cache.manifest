@@ -1,8 +1,15 @@
 CACHE MANIFEST 
+# v1.0.8 - ME4OO PS STORE PRO CACHE
 
-../img.jpg
-../style.css 
-exp_loader.js
-goldhen_2.4b18.10.bin
 index.html
+exp_loader.js
 jb.js
+goldhen_2.4b18.10.bin
+img.jpg
+style.css
+
+NETWORK: 
+*
+
+FALLBACK:
+index.html index.html

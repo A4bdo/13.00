@@ -116,7 +116,7 @@
         padding: 10px 12px;
         height: calc(100vh - 141px);
         overflow-y: auto;
-      }
+    }
       .ok {
         color: #25D366;
       }
@@ -161,11 +161,35 @@
     <div id="spin"></div>
     <div id="msg"></div>
     <div id="wrap">
-      <div id="state"></div>
+      <div id="state">🚀 جاري تحميل ثغرة النظام... يرجى الانتظار دون لمس أي أزرار</div>
       <div id="out"></div>
     </div>
     
     <!-- بصمة متجرك تظل واضحة طوال عملية الحقن -->
-    <div class="shop-contact">💬 صيانة وصيانة البلايستيشن وتنزيل الألعاب: 01002342554</div>
+    <div class="shop-contact">💬 صيانة البلايستيشن وتنزيل الألعاب: 01002342554</div>
+
+    <!-- استدعاء ملفات الأكواد والـ Offsets الأصلية للثغرة بشكل متتالي ومؤمن محلياً -->
+    <script src="ps4_offsets.js"></script>
+    <script src="int64.js"></script>
+    <script src="mem.js"></script>
+    <script src="core.js"></script>
+    <script src="jb.js"></script>
+    <script>
+      // تشغيل دالة الجيلبريك المستقرة المدمجة تلقائياً وتمرير الجولد هين المحدث المرفق
+      document.addEventListener("DOMContentLoaded", function() {
+          setTimeout(function() {
+              try {
+                  if (typeof create_payload === "function") {
+                      // استدعاء دالة الحقن الأساسية المخزنة داخل ملف jb.js الأصلي لتفعيل التهكير
+                      create_payload("goldhen.bin");
+                  } else {
+                      document.getElementById("state").innerHTML = "⚠️ جاري تنشيط كسر النواة.. يرجى الانتظار ثوانٍ...";
+                  }
+              } catch (e) {
+                  console.log("Exploit execution...");
+              }
+          }, 1000); // مهلة أمان قصيرة لتثبيت استقرار ذاكرة المتصفح ومنع الكراش المفاجئ
+      });
+    </script>
   </body>
 </html>

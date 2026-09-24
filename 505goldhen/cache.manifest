@@ -1,7 +1,14 @@
 CACHE MANIFEST 
+# v1.0.5 - ME4OO PS STORE GOLDHEN ONLY CACHE
 
-../img.jpg
-../style.css
+index.html
 exploit.js
 goldhen_2.4b18.10.bin
-index.html
+img.jpg
+style.css
+
+NETWORK: 
+*
+
+FALLBACK:
+index.html index.html

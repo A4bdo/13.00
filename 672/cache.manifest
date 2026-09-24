@@ -1,18 +1,23 @@
 CACHE MANIFEST 
+# v6.72.3 - ME4OO PS STORE 6.72 FW STABLE CACHE
 
-CACHE: 
-../img.jpg
-../style.css
-frontend.js
-goldhen_2.4b18.10.bin
+CACHE:
 index.html
+frontend.js
 jb2.js
+payload.js
+pl_loader.js
+pl_loaderBL.js
+pl_loaderFW.js
+pl_loaderWeb.js
+img.jpg
+style.css
+goldhen_2.4b18.10.bin
 OystersMenu-v1.3.8-v1.00.bin
 OystersMenu-v1.3.8-v1.13.bin
 OystersMenu-v1.3.8-v1.19.bin
 OystersMenu-v1.3.8-v1.24.bin
 OystersMenu-v1.3.8-v1.29.bin
-payload.js
 pl_App2usb.bin
 pl_AvatarBackup.bin
 pl_AvatarRestore.bin
@@ -37,10 +42,6 @@ pl_HistoryBlocker.bin
 pl_KernelDumper.bin
 pl_LinuxBaikal.bin
 pl_LinuxUSB.bin
-pl_loader.js
-pl_loaderBL.js
-pl_loaderFW.js
-pl_loaderWeb.js
 pl_mira.bin
 pl_OfflineCacheBackup.bin
 pl_OfflineCacheRestore.bin
@@ -57,4 +58,7 @@ pl_WebRTE.bin
 WildeModz-1.46.bin
 
 NETWORK: 
-* 
+*
+
+FALLBACK:
+index.html index.html
