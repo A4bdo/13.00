@@ -6,6 +6,7 @@
     <title>ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* تنسيقات إضافية لضمان استقرار واجهة الكاش والأزرار الجديدة */
         .reset-btn {
             background-color: #ff3333;
             color: white;
@@ -20,20 +21,40 @@
         .reset-btn:hover { background-color: #cc0000; }
         .status-loading { color: #ffcc00; font-weight: bold; }
         .status-success { color: #25D366; font-weight: bold; }
+        
+        /* 🌟 تصميم الزر التلقائي المطور ليكون واضحاً ومتناسقاً 100% مع الخلفية */
         .auto-btn {
-            background-color: #00b4d8;
-            color: white;
-            animation: pulse 1.5s infinite;
+            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+            color: #ffffff !important;
+            font-size: 20px !important;
+            font-weight: bold !important;
+            border: 2px solid #00f5ff !important;
+            border-radius: 10px !important;
+            padding: 15px 30px !important;
+            margin: 20px auto !important;
+            cursor: pointer !important;
+            display: inline-block !important;
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.4) !important;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
+            transition: all 0.3s ease !important;
+            animation: pulseGlow 1.8s infinite ease-in-out !important;
         }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
+        .auto-btn:hover {
+            background: linear-gradient(135deg, #00f5ff 0%, #00b4d8 100%) !important;
+            box-shadow: 0 0 25px rgba(0, 245, 255, 0.8) !important;
+            transform: scale(1.05) !important;
+        }
+        /* حركة النبض والوهج الاحترافية لتوائم تصميم المحل VIP */
+        @keyframes pulseGlow {
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 245, 255, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(0, 245, 255, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 245, 255, 0.4); }
         }
     </style>
 </head>
 <body>
     <script>
+        // تنظيف وحماية تاريخ المتصفح لمنع الجليتشات والتعليق أثناء التنقل والعودة
         var histlength = history.length;
         history.go(-histlength); 
     </script>
@@ -105,21 +126,21 @@
 
             if (!isPS4) {
                 dynamicZone.innerHTML = "<p class='status-loading'>⚠️ معاينة الكمبيوتر نشطة: يرجى فتح الصفحة من متصفح PS4 الفعلي.</p>";
-                // محاكاة وضع التجربة الافتراضي لجهاز الـ 13.00 الخاص بك للتحقق من عمل التايمر بالكمبيوتر
                 fwNum = 13.00; 
                 isPS4 = true;
+                fwVersion = "13.00";
             }
 
             if (isPS4) {
                 // الفئة الأولى: الأنظمة المستقرة القديمة والمتوسطة
                 if (fwNum >= 5.05 && fwNum <= 13.00) {
                     targetPath = "g2all/index.html";
-                    btnText = "▶️ تفعيل التعديلة المستقرة (FW " + fwVersion + ")";
+                    btnText = "▶️ دخول التعديلة المستقرة (FW " + fwVersion + ")";
                 } 
                 // الفئة الثانية: الأنظمة الحديثة المحدثة بجولد هين جديد
                 else if (fwNum >= 13.02 && fwNum <= 13.52) {
                     targetPath = "13.2,13.4,13.5,13.52/index.html";
-                    btnText = "🔥 تفعيل التعديلة الحديثة المحدثة (FW " + fwVersion + ")";
+                    btnText = "🔥 دخول التعديلة الحديثة (FW " + fwVersion + ")";
                 } 
                 else {
                     dynamicZone.innerHTML = "<p style='color: #ff3333; font-weight: bold;'>❌ عذراً، سوفتوير جهازك الحالي (" + fwVersion + ") غير مدعوم في هذا البناء.</p>";
@@ -127,8 +148,8 @@
                 }
 
                 // إنشاء وحقن الزر المخصص بشكل VIP تلقائياً للرام
-                dynamicZone.innerHTML = '<button class="btn auto-btn" onclick="saveAndRedirect(\'' + targetPath + '\')">' + btnText + '</button>' +
-                                         '<p id="timerMsg" style="color: #ffcc00; font-weight: bold; margin-top: 15px; font-size: 15px;"></p>';
+                dynamicZone.innerHTML = '<button class="auto-btn" onclick="saveAndRedirect(\'' + targetPath + '\')">' + btnText + '</button>' +
+                                         '<p id="timerMsg" style="color: #00f5ff; font-weight: bold; margin-top: 15px; font-size: 16px; text-shadow: 0 1px 2px rgba(0,0,0,0.8);"></p>';
                 
                 // تشغيل عداد الثواني التنازلي الحامي للمعالج (3 ثوانٍ أمان للرام)
                 var secondsLeft = 3;
@@ -175,43 +196,44 @@
                     var pct = Math.round((e.loaded / e.total) * 100);
                     cacheStatus.innerHTML = '📥 جاري حفظ ملفات الهوست أوفلاين ' + pct + '%... برجاء الانتظار لمنع تعليق المتصفح';
                 }
-            }, false);
-            appCache.addEventListener('cached', function() {
-                isCacheReady = true;
-                cacheStatus.innerHTML = '✅ تم تثبيت كاش المحل بنجاح أوفلاين! جاري بدء الفحص الذكي للأنظمة.';
-                cacheStatus.className = 'status-success';
-                checkAutoRedirect();
-            }, false);
-            appCache.addEventListener('noupdate', function() {
-                isCacheReady = true;
-                cacheStatus.innerHTML = '✅ ملفات الهوست جاهزة ومستقرة أوفلاين داخل المتصفح.';
-                cacheStatus.className = 'status-success';
-                checkAutoRedirect();
-            }, false);
-            appCache.addEventListener('updateready', function() {
-                try { appCache.swapCache(); } catch (e) {}
-                cacheStatus.innerHTML = '🔄 تم تحديث السورس، جاري تحديث الصفحة فوراً...';
-                setTimeout(function() { location.reload(); }, 500);
-            }, false);
-            appCache.addEventListener('error', function() {
-                isCacheReady = true; 
-                cacheStatus.innerHTML = '⚠️ تشغيل مباشر عبر الشبكة (الخادم أوفلاين حالياً).';
-                checkAutoRedirect();
-            }, false);
-        } else {
+        }, false);
+        appCache.addEventListener('cached', function() {
             isCacheReady = true;
-            cacheStatus.innerHTML = '⚙️ المتصفح جاهز ومستقر للتشغيل المباشر.';
+            cacheStatus.innerHTML = '✅ كاش المحل بنجاح أوفلاين! جاري بدء الفحص الذكي للأنظمة.';
+            cacheStatus.className = 'status-success';
             checkAutoRedirect();
-        }
+        }, false);
+        appCache.addEventListener('noupdate', function() {
+            isCacheReady = true;
+            cacheStatus.innerHTML = '✅ ملفات الهوست جاهزة ومستقرة أوفلاين داخل المتصفح.';
+            cacheStatus.className = 'status-success';
+            checkAutoRedirect();
+        }, false);
+        appCache.addEventListener('updateready', function() {
+            try { appCache.swapCache(); } catch (e) {}
+            cacheStatus.innerHTML = '🔄 تم تحديث السورس، جاري تحديث الصفحة فوراً...';
+            setTimeout(function() { location.reload(); }, 500);
+        }, false);
+        appCache.addEventListener('error', function() {
+            isCacheReady = true; 
+            cacheStatus.innerHTML = '⚠️ تشغيل مباشر عبر الشبكة (الخادم أوفلاين حالياً).';
+            checkAutoRedirect();
+        }, false);
+    } else {
+        isCacheReady = true;
+        cacheStatus.innerHTML = '⚙️ المتصفح جاهز ومستقر للتشغيل المباشر.';
+        checkAutoRedirect();
+    }
 
-        function show_social(){
-            document.getElementById("social_media").style.display = "block";
-            document.getElementById("menu").style.display = "none";
-        }
-        function load_menu(){
-            document.getElementById("menu").style.display = "block";
-            document.getElementById("social_media").style.display = "none";
-        }
-    </script>
+    function show_social(){
+        document.getElementById("social_media").style.display = "block";
+        document.getElementById("menu").style.display = "none";
+    }
+    function load_menu(){
+        document.getElementById("menu").style.display = "block";
+        document.getElementById("social_media").style.display = "none";
+    }
+</script>
 </body>
 </html>
+
