@@ -1,13 +1,8 @@
 CACHE MANIFEST 
-# v2.5.0 - ME4OO PS STORE OLD FIRMWARES CACHE
 
-CACHE:
-index.html
-payload.html
-mira-75x.html
-web-activator.html
-img.jpg
-style.css
+CACHE: 
+../img.jpg
+../style.css
 app-dumper.js
 app2usb.js
 backup.js
@@ -23,6 +18,7 @@ goldhen_2.3.js
 goldhen_2.4b18.10.js
 history-blocker.js
 idu.js
+index.html
 int64.js
 jb.js
 kernel-clock.js
@@ -33,6 +29,7 @@ linux-3gb.js
 mira-750.js
 mira-751.js
 mira-755.js
+mira-75x.html
 mira.js
 netcat.js
 Orbis-Toolbox-755.js
@@ -41,19 +38,17 @@ OystersMenu-v1.3.8-v1.13.js
 OystersMenu-v1.3.8-v1.19.js
 OystersMenu-v1.3.8-v1.24.js
 OystersMenu-v1.3.8-v1.29.js
+payload.html
 ps4.js
 ps4debug.js
 restore.js
 rif-renamer.js
 todex.js
 utils.js
+web-activator.html
 web-activator.js
 webrte.js
 WildeModz-1.46.js
 
 NETWORK: 
-*
-
-FALLBACK:
-index.html index.html
-payload.html payload.html
+* 

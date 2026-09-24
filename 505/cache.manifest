@@ -1,10 +1,7 @@
 CACHE MANIFEST 
-# v5.05.2 - ME4OO PS STORE 5.05 FW STABLE CACHE
 
-index.html
-exploit.js
-img.jpg
-style.css
+../img.jpg
+../style.css
 app2usb.bin
 arabic-guy100.bin
 arabic-guy127.bin
@@ -14,6 +11,7 @@ backup.bin
 disable-updates.bin
 dumper.bin
 enable-updates.bin
+exploit.js
 fan-threshold50.bin
 fan-threshold55.bin
 fan-threshold60.bin
@@ -23,6 +21,7 @@ fan-threshold75.bin
 ftp.bin
 goldhen_2.3_505.bin
 goldhen_2.4b18.10.bin
+index.html
 kernel-dumper.bin
 Lamance-v0.9-1.38.bin
 Orbis-Toolbox-505.bin
@@ -42,9 +41,3 @@ WildeModz-1.32.bin
 WildeModz-1.33.bin
 WildeModz-1.38.bin
 WildeModz-1.46.bin
-
-NETWORK: 
-*
-
-FALLBACK:
-index.html index.html
