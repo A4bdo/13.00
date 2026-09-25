@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" manifest="cache.appcache">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* تنسيقات إضافية لضمان استقرار واجهة الكاش والأزرار الجديدة */
+        .reset-btn {
+            background-color: #ff3333;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .reset-btn:hover { background-color: #cc0000; }
+        .status-loading { color: #ffcc00; font-weight: bold; }
+        .status-success { color: #25D366; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <script>
+        // تنظيف وحماية تاريخ المتصفح لمنع الجليتشات والتعليق أثناء التنقل والعودة
+        var histlength = history.length;
+        history.go(-histlength); 
+    </script>
+    
+    <h1 id="msgs">ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب</h1>
+    <h2 id="msgs2">امانه عليك تصلي على حبيبك النبي</h2>
+    <div id="cacheStatus" class="status-loading" style="font-size: 16px; margin-top: 5px;">⏳ جاري التحقق من ملفات النظام...</div>
+    <br>
+    
+    <div id="menu">
+        <h1 style="font-size: 18px; color: yellow;">اختر نظام جهازك</h1>
+        
+        <button class="btn" onmouseover="msgs.innerHTML='PS4 5.05 FW GoldHEN Host'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('505goldhen/index.html')"> GoldHEN لنظام 5.05 </button>
+        <button class="btn" onmouseover="msgs.innerHTML='PS4 5.05 FW Host v2.5'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('505/index.html')"> نظام 5.05 الإصدار v2.5 </button>
+        <br>
+        
+        <button class="btn" onmouseover="msgs.innerHTML='PS4 6.72 FW GoldHEN Host'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('672goldhen/index.html')"> GoldHEN لنظام 6.72 </button>
+        <button class="btn" onmouseover="msgs.innerHTML='PS4 6.72 FW Host v3.0'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('672/index.html')"> نظام 6.72 الإصدار v3.0 </button>
+        <br>
+        
+        <button class="btn" onmouseover="msgs.innerHTML='PS4 7.02 FW Host v1.4'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('702/index.html')"> نظام 7.02 الإصدار v1.4 </button>
+        <button class="btn" onmouseover="msgs.innerHTML='PS4 7.50 - 7.55 FW Host v1.5'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('75x/index.html')"> نظام 7.50 - 7.55 الإصدار</button>
+        <br>
+        
+        <!-- التقسيم والترتيب الاحترافي والذكي الموجه للمجلد الجديد -->
+        <button class="btn" onmouseover="msgs.innerHTML='PS4 7.00 - 13.00 FW GoldHEN Host'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('g2all/index.html')"> لنظام 7.00 - 13.00 </button>
+        <button class="btn" onmouseover="msgs.innerHTML='PS4 13.02 - 13.52 FW New GoldHEN Host'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('13.2,13.4,13.5,13.52/index.html')"> لنظام 13.02 - 13.52 </button>
+        <br>
+        
+        <button class="btn" onmouseover="msgs.innerHTML='PS4 9.00 FW GoldHEN Host - (FontFaceSet Webkit)'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('900goldhen/index.html')"> GoldHEN لنظام 9.00 </button>
+        <br>
+        
+        <button class="btn" onmouseover="msgs.innerHTML='PS4 9.00 FW Host v2.8 with Manual Exploitation - (FontFaceSet Webkit)'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('900v2/index.html')"> نظام 9.00 الإصدار | يدوي </button>
+        <button class="btn" onmouseover="msgs.innerHTML='PS4 9.00 FW Host v3.0 with Automatic Exploitation - (FontFaceSet Webkit)'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('900v3/index.html')"> نظام 9.00 الإصدار | تلقائي </button>
+        <br>
+        
+        <button class="btn" onmouseover="msgs.innerHTML='Restore a Host to User’s Guide without using DNS'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="saveAndRedirect('restore/index.html')"> استعادة المضيف </button>
+        <br>
+        
+        <!-- زر إعادة ضبط واختيار نظام أخر -->
+        <button id="resetFwBtn" class="reset-btn" style="display: none;" onclick="clearSavedFirmware()">🔄 تغيير النظام المحفوظ تلقائياً</button>
+        <br>
+
+        <button class="btn btn-onln" onmouseover="msgs.innerHTML='صل على حبيبك النبي.'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="show_social()" style="margin-top: 80px; margin-bottom: 15px; width: 468px;">اضغط هنا للتواصل والدعم الفني للمحل</button>
+    </div>
+
+    <div id="social_media" style="display: none;">
+        <h1 style="font-size: 18px; color: yellow;">الدعم الفني والتواصل:</h1>
+        <a href="https://wa.me" target="_blank" style="color: #25D366; font-size: 20px; display: block; margin: 10px; text-decoration: none; font-weight: bold;">💬 تواصل معنا عبر واتساب: 01002342554</a>
+        <a href="#" style="color: white; font-size: 20px; display: block; margin: 10px; text-decoration: none;">صفحة الفيس بوك للمتجر</a>
+        <br>
+        <button class="btn" onclick="load_menu()"> رجوع </button>
+    </div>
+
+    <script>
+        var cacheStatus = document.getElementById('cacheStatus');
+        var savedSystemKey = 'me4oo_saved_fw_path';
+        var isCacheReady = false;
+
+        // دالة حفظ الاختيار والانتقال المباشر
+        function saveAndRedirect(path) {
+            try {
+                localStorage.setItem(savedSystemKey, path);
+            } catch(e) {}
+            location.replace(path);
+        }
+
+        // دالة حذف المسار المحفوظ لإتاحة الاختيار من جديد
+        function clearSavedFirmware() {
+            try {
+                localStorage.removeItem(savedSystemKey);
+                document.getElementById('resetFwBtn').style.display = 'none';
+                cacheStatus.innerHTML = '✅ تم حذف النظام المحفوظ، يمكنك اختيار السوفتوير من جديد.';
+                cacheStatus.className = 'status-success';
+            } catch(e) {}
+        }
+
+        // فحص وجود تفعيل وتوجيه تلقائي مستقر
+        function checkAutoRedirect() {
+            try {
+                var savedPath = localStorage.getItem(savedSystemKey);
+                if (savedPath && isCacheReady) {
+                    cacheStatus.innerHTML = '🚀 تم اكتشاف نظامك المحفوظ.. جاري الدخول التلقائي المستقر...';
+                    cacheStatus.className = 'status-success';
+                    document.getElementById('resetFwBtn').style.display = 'inline-block';
+                    setTimeout(function() {
+                        location.replace(savedPath);
+                    }, 1000);
+                } else if (savedPath) {
+                    document.getElementById('resetFwBtn').style.display = 'inline-block';
+                }
+            } catch(e) {}
+        }
+
+        // ========== منظومة الكاش والـ AppCache الآمنة والمستقرة لمنع الكراش ==========
+        var appCache = window.applicationCache;
+        if (appCache) {
+            appCache.addEventListener('checking', function() {
+                cacheStatus.innerHTML = '⏳ جاري فحص ملفات الهوست بالتخزين المؤقت...';
+            }, false);
+            appCache.addEventListener('downloading', function() {
+                cacheStatus.innerHTML = '📥 أول زيارة: جاري تنزيل ملفات الكاش المؤقت لحماية متصفحك...';
+            }, false);
+            appCache.addEventListener('progress', function(e) {
+                if (e && e.total) {
+                    var pct = Math.round((e.loaded / e.total) * 100);
+                    cacheStatus.innerHTML = '📥 جاري حفظ ملفات الهوست أوفلاين ' + pct + '%... برجاء الانتظار لمنع تعليق المتصفح';
+                }
+            }, false);
+            appCache.addEventListener('cached', function() {
+                isCacheReady = true;
+                cacheStatus.innerHTML = '✅ تم تثبيت كاش المحل بنجاح أوفلاين! اختر النظام الآن لبدء تشغيل آمن.';
+                cacheStatus.className = 'status-success';
+                checkAutoRedirect();
+            }, false);
+            appCache.addEventListener('noupdate', function() {
+                isCacheReady = true;
+                cacheStatus.innerHTML = '✅ ملفات الهوست جاهزة ومستقرة أوفلاين داخل المتصفح.';
+                cacheStatus.className = 'status-success';
+                checkAutoRedirect();
+            }, false);
+            appCache.addEventListener('updateready', function() {
+                try { appCache.swapCache(); } catch (e) {}
+                cacheStatus.innerHTML = '🔄 تم تحديث السورس، جاري تحديث الصفحة فوراً...';
+                setTimeout(function() { location.reload(); }, 500);
+            }, false);
+            appCache.addEventListener('error', function() {
+                isCacheReady = true; 
+                cacheStatus.innerHTML = '⚠️ تشغيل مباشر عبر الشبكة (الخادم أوفلاين حالياً).';
+                checkAutoRedirect();
+            }, false);
+        } else {
+            isCacheReady = true;
+            cacheStatus.innerHTML = '⚙️ المتصفح جاهز ومستقر للتشغيل المباشر.';
+            checkAutoRedirect();
+        }
+
+        // دالات التنقل لصفحة السوشيال ميديا والدعم للمحل
+        function show_social(){
+            document.getElementById("social_media").style.display = "block";
+            document.getElementById("menu").style.display = "none";
+        }
+
+        function load_menu(){
+            document.getElementById("menu").style.display = "block";
+            document.getElementById("social_media").style.display = "none";
+        }
+    </script>
+</body>
+</html>
