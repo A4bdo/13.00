@@ -21,65 +21,119 @@
         .reset-btn:hover { background-color: #cc0000; }
         .status-loading { color: #ffcc00; font-weight: bold; }
         .status-success { color: #25D366; font-weight: bold; }
-        
-        /* 🌟 تصميم الزر التلقائي المطور ليكون واضحاً ومتناسقاً 100% مع الخلفية */
-        .auto-btn {
-            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
-            color: #ffffff !important;
-            font-size: 20px !important;
+
+        /* 🌟 الشريط العلوي الأسود الذكي لخاصية الـ Auto Exploit Selection */
+        .top-bar {
+            background: rgba(14, 17, 22, 0.95);
+            border-bottom: 2px solid #ffb703;
+            padding: 12px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            margin: -16px -16px 20px -16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            letter-spacing: 0.5px;
+        }
+
+        /* 🎯 تنسيق السنتر والمحاذاة لكافة الأزرار لتبدو VIP وفي منتصف الشاشة */
+        #menu, #social_media {
+            text-align: center !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-block;
+            margin: 6px auto !important;
+            min-width: 280px;
+        }
+
+        /* 💛 تصميم وتوهج الزر الأصفر النيون للفحص التلقائي الموائم للواجهة */
+        .multi-btn {
+            background: linear-gradient(135deg, #ffd166 0%, #ffb703 100%) !important;
+            color: #0b132b !important;
             font-weight: bold !important;
-            border: 2px solid #00f5ff !important;
-            border-radius: 10px !important;
-            padding: 15px 30px !important;
-            margin: 20px auto !important;
-            cursor: pointer !important;
-            display: inline-block !important;
-            box-shadow: 0 0 15px rgba(0, 245, 255, 0.4) !important;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
-            transition: all 0.3s ease !important;
-            animation: pulseGlow 1.8s infinite ease-in-out !important;
+            border: 2px solid #ffb703 !important;
+            box-shadow: 0 0 15px rgba(255, 183, 3, 0.6) !important;
+            animation: pulseGlow 1.5s infinite ease-in-out;
         }
-        .auto-btn:hover {
-            background: linear-gradient(135deg, #00f5ff 0%, #00b4d8 100%) !important;
-            box-shadow: 0 0 25px rgba(0, 245, 255, 0.8) !important;
-            transform: scale(1.05) !important;
+        .multi-btn:hover {
+            background: linear-gradient(135deg, #ffb703 0%, #ffd166 100%) !important;
+            box-shadow: 0 0 25px rgba(255, 183, 3, 0.9) !important;
+            transform: scale(1.03);
         }
-        /* حركة النبض والوهج الاحترافية لتوائم تصميم المحل VIP */
         @keyframes pulseGlow {
-            0% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 245, 255, 0.4); }
-            50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(0, 245, 255, 0.7); }
-            100% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 245, 255, 0.4); }
+            0% { box-shadow: 0 0 12px rgba(255, 183, 3, 0.5); }
+            50% { box-shadow: 0 0 22px rgba(255, 183, 3, 0.8); }
+            100% { box-shadow: 0 0 12px rgba(255, 183, 3, 0.5); }
+        }
+
+        /* 🔔 شارة عرض العداد الرقمي التنازلي التلقائي باللون الأصفر */
+        .timer-badge {
+            background: rgba(255, 183, 3, 0.1) !important;
+            border: 1px solid #ffb703 !important;
+            color: #ffd166 !important;
+            padding: 10px 20px !important;
+            border-radius: 8px !important;
+            display: inline-block !important;
+            font-size: 15px !important;
+            font-weight: bold !important;
+            margin-top: 10px !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8) !important;
         }
     </style>
 </head>
 <body>
-    <script>
-        // تنظيف وحماية تاريخ المتصفح لمنع الجليتشات والتعليق أثناء التنقل والعودة
-        var histlength = history.length;
-        history.go(-histlength); 
-    </script>
-    
-    <h1 id="msgs">ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب</h1>
-    <h2 id="msgs2">امانه عليك تصلي على حبيبك النبي</h2>
-    <div id="cacheStatus" class="status-loading" style="font-size: 16px; margin-top: 5px;">⏳ جاري التحقق من ملفات النظام...</div>
+    <div id="topBar" class="top-bar">ME4OO PS STORE - (Auto Exploit Selection)</div>
+
+    <h1 id="msgs" style="display:none;">ME4OO PS STORE</h1>
+    <h2 id="msgs2" style="text-align: center;">امانه عليك تصلي على حبيبك النبي</h2>
+    <div id="cacheStatus" class="status-loading" style="font-size: 16px; margin-top: 5px; text-align: center;">⏳ جاري التحقق من ملفات النظام...</div>
     <br>
     
     <div id="menu">
-        <h1 style="font-size: 18px; color: yellow;">حالة الفحص التلقائي للنظام</h1>
+        <!-- الزرار الأصفر الذكي للفحص التلقائي الفوري متموضع بالمنتصف كلياً -->
+        <button class="btn multi-btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 GoldHEN Host - (Auto Exploit Selection)'" onclick="triggerAutoDetect()"> GoldHEN Multi FW </button>
         
-        <!-- حاوية الأزرار الديناميكية الذكية لحماية رام المتصفح -->
-        <div id="dynamicZone" style="margin-bottom: 20px;">
-            <p style="color: #8b95a3;">جاري قراءة سوفتوير المنصة بالخلفية...</p>
+        <div style="margin: 5px 0;">
+            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 5.05 FW GoldHEN Host'" onclick="saveAndRedirect('505goldhen/index.html')"> GoldHEN لنظام 5.05 </button>
+            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 5.05 FW Host v2.5'" onclick="saveAndRedirect('505/index.html')"> نظام 5.05 الإصدار v2.5 </button>
         </div>
+        
+        <div style="margin: 5px 0;">
+            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 6.72 FW GoldHEN Host'" onclick="saveAndRedirect('672goldhen/index.html')"> GoldHEN لنظام 6.72 </button>
+            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 6.72 FW Host v3.0'" onclick="saveAndRedirect('672/index.html')"> نظام 6.72 الإصدار v3.0 </button>
+        </div>
+        
+        <div style="margin: 5px 0;">
+            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 7.02 FW Host v1.4'" onclick="saveAndRedirect('702/index.html')"> نظام 7.02 الإصدار v1.4 </button>
+            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 7.50 - 7.55 FW Host v1.5'" onclick="saveAndRedirect('75x/index.html')"> نظام 7.50 - 7.55 الإصدار</button>
+        </div>
+        
+        <div style="margin: 5px 0;">
+            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 7.00 - 13.00 FW GoldHEN Host'" onclick="saveAndRedirect('g2all/index.html')"> لنظام 7.00 - 13.00 </button>
+            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 13.02 - 13.52 FW New GoldHEN Host'" onclick="saveAndRedirect('13.2,13.4,13.5,13.52/index.html')"> لنظام 13.02 - 13.52 </button>
+        </div>
+        
+        <div style="margin: 5px 0;">
+            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 9.00 FW GoldHEN Host - (FontFaceSet Webkit)'" onclick="saveAndRedirect('900goldhen/index.html')"> GoldHEN لنظام 9.00 </button>
+            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 9.00 FW Host v3.0 with Automatic Exploitation'" onclick="saveAndRedirect('900v3/index.html')"> نظام 9.00 الإصدار | تلقائي </button>
+        </div>
+        
+        <div style="margin: 5px 0;">
+            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 9.00 FW Host v2.8 with Manual Exploitation'" onclick="saveAndRedirect('900v2/index.html')"> نظام 9.00 الإصدار | يدوي </button>
+            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='Restore a Host to User’s Guide without using DNS'" onclick="saveAndRedirect('restore/index.html')"> استعادة المضيف </button>
+        </div>
+        
+        <div id="timerContainer" style="margin-top: 5px; min-height: 45px;"></div>
 
-        <!-- زر إعادة ضبط واختيار نظام أخر لو أراد الخروج من التثبيت التلقائي -->
-        <button id="resetFwBtn" class="reset-btn" style="display: none;" onclick="clearSavedFirmware()">🔄 إلغاء الحفظ التلقائي للنظام</button>
+        <button id="resetFwBtn" class="reset-btn" style="display: none;" onclick="clearSavedFirmware()">🔄 تغيير النظام المحفوظ تلقائياً</button>
         <br>
 
-        <button class="btn btn-onln" onmouseover="msgs.innerHTML='صل على حبيبك النبي.'" onmouseout="msgs.innerHTML='ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب'" onclick="show_social()" style="margin-top: 50px; margin-bottom: 15px; width: 468px;">اضغط هنا للتواصل والدعم الفني للمحل</button>
-    </div>
-
-    <div id="social_media" style="display: none;">
+        <button class="btn btn-onln" onclick="show_social()" style="margin-top: 30px; margin-bottom: 15px; width: 468px;">اضغط هنا للتواصل والدعم الفني للمحل</button>
+        <div id="social_media" style="display: none;">
         <h1 style="font-size: 18px; color: yellow;">الدعم الفني والتواصل:</h1>
         <a href="https://wa.me" target="_blank" style="color: #25D366; font-size: 20px; display: block; margin: 10px; text-decoration: none; font-weight: bold;">💬 تواصل معنا عبر واتساب: 01002342554</a>
         <a href="#" style="color: white; font-size: 20px; display: block; margin: 10px; text-decoration: none;">صفحة الفيس بوك للمتجر</a>
@@ -93,82 +147,61 @@
         var isCacheReady = false;
         var countdownTimer = null;
 
-        // دالة حفظ الاختيار والانتقال المباشر للأنظمة
         function saveAndRedirect(path) {
             if(countdownTimer) clearInterval(countdownTimer);
             try { localStorage.setItem(savedSystemKey, path); } catch(e) {}
             location.replace(path);
         }
 
-        // دالة حذف المسار المحفوظ لإتاحة الاختيار من جديد
         function clearSavedFirmware() {
             if(countdownTimer) clearInterval(countdownTimer);
             try {
                 localStorage.removeItem(savedSystemKey);
                 document.getElementById('resetFwBtn').style.display = 'none';
-                cacheStatus.innerHTML = '✅ تم حذف النظام المحفوظ، يمكنك إعادة تحميل الصفحة لإعادة الفحص.';
+                cacheStatus.innerHTML = '✅ تم حذف النظام المحفوظ، يمكنك اختيار السوفتوير من جديد.';
                 cacheStatus.className = 'status-success';
-                setTimeout(function() { location.reload(); }, 1500);
+                setTimeout(function() { location.reload(); }, 1000);
             } catch(e) {}
         }
 
-        // منظومة الفحص التلقائي والتوزيع الثنائي لحماية الرام مع العداد التنازلي التلقائي
-        function runMasterAutoDetect() {
+        // 🌟 منظومة الفحص الأوتوماتيكي والتايمر الذكي الحامي للرام عند ضغط الزر الأصفر
+        function triggerAutoDetect() {
             var uaFull = navigator.userAgent;
             var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);
             var isPS4 = match !== null;
-            var fwVersion = isPS4 ? match[1] : "Unknown";
+            var fwVersion = isPS4 ? match[1] : "13.00"; // افتراضي للمعاينة بالكمبيوتر
             var fwNum = parseFloat(fwVersion);
             
-            var dynamicZone = document.getElementById("dynamicZone");
+            var topBar = document.getElementById("topBar");
+            var timerContainer = document.getElementById("timerContainer");
             var targetPath = "";
-            var btnText = "";
 
-            if (!isPS4) {
-                dynamicZone.innerHTML = "<p class='status-loading'>⚠️ معاينة الكمبيوتر نشطة: يرجى فتح الصفحة من متصفح PS4 الفعلي.</p>";
-                fwNum = 13.00; 
-                isPS4 = true;
-                fwVersion = "13.00";
+            topBar.innerHTML = "⏳ جاري فحص نواة النظام... تم اكتشاف إصدار: PS4 " + fwVersion;
+
+            if (fwNum >= 5.05 && fwNum <= 13.00) {
+                targetPath = "g2all/index.html";
+            } else if (fwNum >= 13.02 && fwNum <= 13.52) {
+                targetPath = "13.2,13.4,13.5,13.52/index.html";
+            } else {
+                topBar.innerHTML = "❌ نظامك الحالي (" + fwVersion + ") غير مدعوم في الفحص التلقائي!";
+                return;
             }
 
-            if (isPS4) {
-                // الفئة الأولى: الأنظمة المستقرة القديمة والمتوسطة
-                if (fwNum >= 5.05 && fwNum <= 13.00) {
-                    targetPath = "g2all/index.html";
-                    btnText = "▶️ دخول التعديلة المستقرة (FW " + fwVersion + ")";
-                } 
-                // الفئة الثانية: الأنظمة الحديثة المحدثة بجولد هين جديد
-                else if (fwNum >= 13.02 && fwNum <= 13.52) {
-                    targetPath = "13.2,13.4,13.5,13.52/index.html";
-                    btnText = "🔥 دخول التعديلة الحديثة (FW " + fwVersion + ")";
-                } 
-                else {
-                    dynamicZone.innerHTML = "<p style='color: #ff3333; font-weight: bold;'>❌ عذراً، سوفتوير جهازك الحالي (" + fwVersion + ") غير مدعوم في هذا البناء.</p>";
-                    return;
-                }
+            var secondsLeft = 3;
+            timerContainer.innerHTML = '<div id="timerMsg" class="timer-badge">⏳ جاري تهيئة ذاكرة المتصفح.. الدخول التلقائي خلال (' + secondsLeft + ') ثوانٍ...</div>';
 
-                // إنشاء وحقن الزر المخصص بشكل VIP تلقائياً للرام
-                dynamicZone.innerHTML = '<button class="auto-btn" onclick="saveAndRedirect(\'' + targetPath + '\')">' + btnText + '</button>' +
-                                         '<p id="timerMsg" style="color: #00f5ff; font-weight: bold; margin-top: 15px; font-size: 16px; text-shadow: 0 1px 2px rgba(0,0,0,0.8);"></p>';
-                
-                // تشغيل عداد الثواني التنازلي الحامي للمعالج (3 ثوانٍ أمان للرام)
-                var secondsLeft = 3;
+            countdownTimer = setInterval(function() {
+                secondsLeft--;
                 var timerMsg = document.getElementById("timerMsg");
-                timerMsg.innerHTML = "⏳ جاري تهيئة ذاكرة المتصفح.. سيتم بدء التشغيل التلقائي خلال (" + secondsLeft + ") ثوانٍ...";
-
-                countdownTimer = setInterval(function() {
-                    secondsLeft--;
-                    if (secondsLeft <= 0) {
-                        clearInterval(countdownTimer);
-                        saveAndRedirect(targetPath); // التوجيه الأوتوماتيكي عند انتهاء التايمر
-                    } else {
-                        timerMsg.innerHTML = "⏳ جاري تهيئة ذاكرة المتصفح.. سيتم بدء التشغيل التلقائي خلال (" + secondsLeft + ") ثوانٍ...";
-                    }
-                }, 1000);
-            }
+                if (secondsLeft <= 0) {
+                    clearInterval(countdownTimer);
+                    saveAndRedirect(targetPath);
+                } else {
+                    if(timerMsg) timerMsg.innerHTML = "⏳ جاري تهيئة ذاكرة المتصفح.. الدخول التلقائي خلال (" + secondsLeft + ") ثوانٍ...";
+                }
+            }, 1000);
         }
 
-        // فحص وجود تفعيل وتوجيه تلقائي مستقر داخل ذاكرة كاش المتصفح
         function checkAutoRedirect() {
             try {
                 var savedPath = localStorage.getItem(savedSystemKey);
@@ -179,14 +212,10 @@
                     setTimeout(function() { location.replace(savedPath); }, 1000);
                 } else if (savedPath) {
                     document.getElementById('resetFwBtn').style.display = 'inline-block';
-                    runMasterAutoDetect();
-                } else {
-                    runMasterAutoDetect();
                 }
             } catch(e) {}
         }
 
-        // ========== منظومة الكاش والـ AppCache الآمنة والمستقرة لمنع الكراش ==========
         var appCache = window.applicationCache;
         if (appCache) {
             appCache.addEventListener('checking', function() { cacheStatus.innerHTML = '⏳ جاري فحص ملفات الهوست بالتخزين المؤقت...'; }, false);
@@ -196,44 +225,18 @@
                     var pct = Math.round((e.loaded / e.total) * 100);
                     cacheStatus.innerHTML = '📥 جاري حفظ ملفات الهوست أوفلاين ' + pct + '%... برجاء الانتظار لمنع تعليق المتصفح';
                 }
-        }, false);
-        appCache.addEventListener('cached', function() {
-            isCacheReady = true;
-            cacheStatus.innerHTML = '✅ كاش المحل بنجاح أوفلاين! جاري بدء الفحص الذكي للأنظمة.';
-            cacheStatus.className = 'status-success';
-            checkAutoRedirect();
-        }, false);
-        appCache.addEventListener('noupdate', function() {
-            isCacheReady = true;
-            cacheStatus.innerHTML = '✅ ملفات الهوست جاهزة ومستقرة أوفلاين داخل المتصفح.';
-            cacheStatus.className = 'status-success';
-            checkAutoRedirect();
-        }, false);
-        appCache.addEventListener('updateready', function() {
-            try { appCache.swapCache(); } catch (e) {}
-            cacheStatus.innerHTML = '🔄 تم تحديث السورس، جاري تحديث الصفحة فوراً...';
-            setTimeout(function() { location.reload(); }, 500);
-        }, false);
-        appCache.addEventListener('error', function() {
-            isCacheReady = true; 
-            cacheStatus.innerHTML = '⚠️ تشغيل مباشر عبر الشبكة (الخادم أوفلاين حالياً).';
-            checkAutoRedirect();
-        }, false);
-    } else {
-        isCacheReady = true;
-        cacheStatus.innerHTML = '⚙️ المتصفح جاهز ومستقر للتشغيل المباشر.';
-        checkAutoRedirect();
-    }
+            }, false);
+            appCache.addEventListener('cached', function() { isCacheReady = true; cacheStatus.innerHTML = '✅ تم تثبيت كاش المحل بنجاح أوفلاين! اختر النظام الآن لبدء تشغيل آمن.'; cacheStatus.className = 'status-success'; checkAutoRedirect(); }, false);
+            appCache.addEventListener('noupdate', function() { isCacheReady = true; cacheStatus.innerHTML = '✅ ملفات الهوست جاهزة ومستقرة أوفلاين داخل المتصفح.'; cacheStatus.className = 'status-success'; checkAutoRedirect(); }, false);
+            appCache.addEventListener('updateready', function() { try { appCache.swapCache(); } catch (e) {} cacheStatus.innerHTML = '🔄 تم تحديث السورس، جاري تحديث الصفحة فوراً...'; setTimeout(function() { location.reload(); }, 500); }, false);
+            appCache.addEventListener('error', function() { isCacheReady = true; cacheStatus.innerHTML = '⚠️ تشغيل مباشر عبر الشبكة (الخادم أوفلاين حالياً).'; checkAutoRedirect(); }, false);
+        } else {
+            isCacheReady = true; cacheStatus.innerHTML = '⚙️ المتصفح جاهز ومستقر للتشغيل المباشر.'; checkAutoRedirect();
+        }
 
-    function show_social(){
-        document.getElementById("social_media").style.display = "block";
-        document.getElementById("menu").style.display = "none";
-    }
-    function load_menu(){
-        document.getElementById("menu").style.display = "block";
-        document.getElementById("social_media").style.display = "none";
-    }
-</script>
+        function show_social(){ document.getElementById("social_media").style.display = "block"; document.getElementById("menu").style.display = "none"; }
+        function load_menu(){ document.getElementById("menu").style.display = "block"; document.getElementById("social_media").style.display = "none"; }
+    </script>
 </body>
 </html>
 
