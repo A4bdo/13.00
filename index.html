@@ -6,7 +6,7 @@
     <title>ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* تنسيقات إضافية لضمان استقرار واجهة الكاش والأزرار الجديدة */
+        /* تنسيقات إضافية لضمان استقرار واجهة الكاش والأزرار الجديدة بالمنتصف */
         .reset-btn {
             background-color: #ff3333;
             color: white;
@@ -22,7 +22,7 @@
         .status-loading { color: #ffcc00; font-weight: bold; }
         .status-success { color: #25D366; font-weight: bold; }
 
-        /* 🌟 شريط الفحص العلوي الذكي لخاصية الـ Auto Exploit Selection */
+        /* 🌟 شريط الفحص العلوي الأسود لخاصية الـ Auto Exploit Selection */
         .top-bar {
             background: rgba(14, 17, 22, 0.95);
             border-bottom: 2px solid #ffb703;
@@ -36,8 +36,8 @@
             letter-spacing: 0.5px;
         }
 
-        /* 🎯 محاذاة وتوسيط كافة الأزرار بالملي في منتصف الشاشة فوق دراع البلايستيشن */
-        #menu, #social_media {
+        /* 🎯 محاذاة وتوسيط كافة الأزرار بالملي في منتصف الشاشة بالتنسيق الـ VIP */
+        #menu, #social_media, .sub-group {
             text-align: center !important;
             display: flex;
             flex-direction: column;
@@ -50,7 +50,7 @@
             min-width: 280px;
         }
 
-        /* 💛 تصميم وتوهج الزر الأصفر النيون للفحص التلقائي الموائم للواجهة الأصلية */
+        /* 💛 تصميم وتوهج النيون للزر الأصفر التلقائي الفعال والمستقر */
         .multi-btn {
             background: linear-gradient(135deg, #ffd166 0%, #ffb703 100%) !important;
             color: #0b132b !important;
@@ -64,6 +64,20 @@
             box-shadow: 0 0 25px rgba(255, 183, 3, 0.9) !important;
             transform: scale(1.03);
         }
+
+        /* ⚙️ زر الخيارات المتقدمة والأدوات اليدوية المضيء بلون سماوي نيون */
+        .advanced-toggle-btn {
+            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%) !important;
+            color: #ffffff !important;
+            font-weight: bold !important;
+            border: 2px solid #00f5ff !important;
+            box-shadow: 0 0 12px rgba(0, 245, 255, 0.4) !important;
+        }
+        .advanced-toggle-btn:hover {
+            background: linear-gradient(135deg, #00f5ff 0%, #00b4d8 100%) !important;
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.7) !important;
+        }
+
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 12px rgba(255, 183, 3, 0.5); }
             50% { box-shadow: 0 0 22px rgba(255, 183, 3, 0.8); }
@@ -86,6 +100,7 @@
     </style>
 </head>
 <body>
+    <!-- 🔔 الشريط العلوي الذكي الفعال للفحص التلقائي -->
     <div id="topBar" class="top-bar">ME4OO PS STORE - (Auto Exploit Selection)</div>
 
     <h1 id="msgs" style="display:none;">ME4OO PS STORE</h1>
@@ -94,46 +109,54 @@
     <br>
     
     <div id="menu">
-        <!-- الزرار الأصفر الذكي للفحص التلقائي الفوري متموضع بالمنتصف كلياً وبدون أخطاء -->
+        <!-- 1️⃣ الزرار الأول: الزر الأصفر العملاق والفعال للفحص والتنشيط التلقائي الفوري للأنظمة -->
         <button class="btn multi-btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 GoldHEN Host - (Auto Exploit Selection)'" onclick="triggerAutoDetect()"> GoldHEN Multi FW </button>
         
-        <div style="margin: 5px 0;">
-            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 5.05 FW GoldHEN Host'" onclick="saveAndRedirect('505goldhen/index.html')"> GoldHEN لنظام 5.05 </button>
-            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 5.05 FW Host v2.5'" onclick="saveAndRedirect('505/index.html')"> نظام 5.05 الإصدار v2.5 </button>
-        </div>
-        
-        <div style="margin: 5px 0;">
-            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 6.72 FW GoldHEN Host'" onclick="saveAndRedirect('672goldhen/index.html')"> GoldHEN لنظام 6.72 </button>
-            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 6.72 FW Host v3.0'" onclick="saveAndRedirect('672/index.html')"> نظام 6.72 الإصدار v3.0 </button>
-        </div>
-        
-        <div style="margin: 5px 0;">
-            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 7.02 FW Host v1.4'" onclick="saveAndRedirect('702/index.html')"> نظام 7.02 الإصدار v1.4 </button>
-            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 7.50 - 7.55 FW Host v1.5'" onclick="saveAndRedirect('75x/index.html')"> نظام 7.50 - 7.55 الإصدار</button>
-        </div>
-        
-        <div style="margin: 5px 0;">
-            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 7.00 - 13.00 FW GoldHEN Host'" onclick="saveAndRedirect('g2all/index.html')"> لنظام 7.00 - 13.00 </button>
-            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 13.02 - 13.52 FW New GoldHEN Host'" onclick="saveAndRedirect('13.2,13.4,13.5,13.52/index.html')"> لنظام 13.02 - 13.52 </button>
-        </div>
-        
-        <div style="margin: 5px 0;">
-            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 9.00 FW GoldHEN Host - (FontFaceSet Webkit)'" onclick="saveAndRedirect('900goldhen/index.html')"> GoldHEN لنظام 9.00 </button>
-            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 9.00 FW Host v3.0 with Automatic Exploitation'" onclick="saveAndRedirect('900v3/index.html')"> نظام 9.00 الإصدار | تلقائي </button>
-        </div>
-        
-        <div style="margin: 5px 0;">
-            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 9.00 FW Host v2.8 with Manual Exploitation'" onclick="saveAndRedirect('900v2/index.html')"> نظام 9.00 الإصدار | يدوي </button>
-            <button class="btn" onmouseover="document.getElementById('topBar').innerHTML='Restore a Host to User’s Guide without using DNS'" onclick="saveAndRedirect('restore/index.html')"> استعادة المضيف </button>
-        </div>
-        
+        <!-- حاوية عرض إشعار التايمر التنازلي التلقائي للمحل عند تنشيط الفحص -->
         <div id="timerContainer" style="margin-top: 5px; min-height: 45px;"></div>
+        <br>
 
+        <!-- 2️⃣ الزرار الثاني الفعال: زر التبديل والتحكم لفتح القائمة اليدوية المخفية -->
+        <button class="btn advanced-toggle-btn" onclick="toggleAdvancedMenu()">⚙️ خيارات الأنظمة اليدوية والأدوات</button>
+        
+        <!-- حاوية قائمة الخيارات اليدوية والأدوات (مخفية افتراضياً لراحة رامات المتصفح) -->
+        <div id="advancedMenu" style="display: none; margin-top: 10px; width: 100%;">
+            <div class="sub-group" style="margin: 5px 0;">
+                <button class="btn" onclick="saveAndRedirect('505goldhen/index.html')"> GoldHEN لنظام 5.05 </button>
+                <button class="btn" onclick="saveAndRedirect('505/index.html')"> نظام 5.05 الإصدار v2.5 </button>
+            </div>
+            
+            <div class="sub-group" style="margin: 5px 0;">
+                <button class="btn" onclick="saveAndRedirect('672goldhen/index.html')"> GoldHEN لنظام 6.72 </button>
+                <button class="btn" onclick="saveAndRedirect('672/index.html')"> نظام 6.72 الإصدار v3.0 </button>
+            </div>
+            
+            <div class="sub-group" style="margin: 5px 0;">
+                <button class="btn" onclick="saveAndRedirect('702/index.html')"> نظام 7.02 الإصدار v1.4 </button>
+                <button class="btn" onclick="saveAndRedirect('75x/index.html')"> نظام 7.50 - 7.55 الإصدار</button>
+            </div>
+            
+            <div class="sub-group" style="margin: 5px 0;">
+                <button class="btn" onclick="saveAndRedirect('g2all/index.html')"> لنظام 7.00 - 13.00 </button>
+                <button class="btn" onclick="saveAndRedirect('13.2,13.4,13.5,13.52/index.html')"> لنظام 13.02 - 13.52 </button>
+            </div>
+            
+            <div class="sub-group" style="margin: 5px 0;">
+                <button class="btn" onclick="saveAndRedirect('900goldhen/index.html')"> GoldHEN لنظام 9.00 </button>
+                <button class="btn" onclick="saveAndRedirect('900v3/index.html')"> نظام 9.00 الإصدار | تلقائي </button>
+            </div>
+            
+            <div class="sub-group" style="margin: 5px 0;">
+                <button class="btn" onclick="saveAndRedirect('900v2/index.html')"> نظام 9.00 الإصدار | يدوي </button>
+                <button class="btn" onclick="saveAndRedirect('restore/index.html')"> استعادة المضيف </button>
+            </div>
+        </div>
         <button id="resetFwBtn" class="reset-btn" style="display: none;" onclick="clearSavedFirmware()">🔄 تغيير النظام المحفوظ تلقائياً</button>
         <br>
 
         <button class="btn btn-onln" onclick="show_social()" style="margin-top: 30px; margin-bottom: 15px; width: 468px;">اضغط هنا للتواصل والدعم الفني للمحل</button>
     </div>
+
     <div id="social_media" style="display: none;">
         <h1 style="font-size: 18px; color: yellow;">الدعم الفني والتواصل:</h1>
         <a href="https://wa.me" target="_blank" style="color: #25D366; font-size: 20px; display: block; margin: 10px; text-decoration: none; font-weight: bold;">💬 تواصل معنا عبر واتساب: 01002342554</a>
@@ -147,6 +170,16 @@
         var savedSystemKey = 'me4oo_saved_fw_path';
         var isCacheReady = false;
         var countdownTimer = null;
+
+        // دالة الزرار الثاني: فتح وإغلاق القائمة اليدوية بسلاسة وحماية الرام
+        function toggleAdvancedMenu() {
+            var advMenu = document.getElementById("advancedMenu");
+            if (advMenu.style.display === "none") {
+                advMenu.style.display = "block";
+            } else {
+                advMenu.style.display = "none";
+            }
+        }
 
         function saveAndRedirect(path) {
             if(countdownTimer) clearInterval(countdownTimer);
@@ -165,13 +198,13 @@
             } catch(e) {}
         }
 
-        // 🌟 دالة الفحص الأوتوماتيكي المصححة كلياً منبثقة من النواة مباشرة
+        // 🌟 دالة الزرار الأول: الفحص الأوتوماتيكي الحقيقي الفعال من نواة المتصفح مباشرة
         function triggerAutoDetect() {
             var uaFull = navigator.userAgent;
             var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);
             var isPS4 = match !== null;
             
-            // قراءة الإصدار الصافي كقيمة عشرية لتجنب جليتش تعليق الدالة
+            // قراءة دقيقة للإصدار الصافي العشري من بصمة المتصفح
             var fwVersion = isPS4 ? match[1] : "13.00"; 
             var fwNum = parseFloat(fwVersion);
             
@@ -181,7 +214,7 @@
 
             if (topBar) topBar.innerHTML = "⏳ جاري فحص نواة النظام... تم اكتشاف إصدار: PS4 " + fwVersion;
 
-            // توجيه الأجهزة للمجلدات الصحيحة والآمنة لرام المتصفح
+            // هندسة توجيه الأجهزة الذكية للمجلدات الفعلية المستقرة عندك
             if (fwNum >= 5.05 && fwNum <= 13.00) {
                 targetPath = "g2all/index.html";
             } else if (fwNum >= 13.02 && fwNum <= 13.52) {
@@ -191,7 +224,7 @@
                 return;
             }
 
-            // تفعيل عداد الثواني التنازلي (3 ثوانٍ مهلة أمان مريحة جداً لرام المتصفح)
+            // تشغيل التايمر التنازلي الحقيقي (3 ثوانٍ أمان تام لاستقرار الرام)
             var secondsLeft = 3;
             if (timerContainer) {
                 timerContainer.innerHTML = '<div id="timerMsg" class="timer-badge">⏳ جاري تهيئة ذاكرة المتصفح.. الدخول التلقائي خلال (' + secondsLeft + ') ثوانٍ...</div>';
@@ -202,7 +235,7 @@
                 var timerMsg = document.getElementById("timerMsg");
                 if (secondsLeft <= 0) {
                     clearInterval(countdownTimer);
-                    saveAndRedirect(targetPath); // التوجيه المستقر بدون رسالة مساحة
+                    saveAndRedirect(targetPath); // تحويل طلقة بدون جليتش المساحة ممتلئة
                 } else {
                     if(timerMsg) timerMsg.innerHTML = "⏳ جاري تهيئة ذاكرة المتصفح.. الدخول التلقائي خلال (" + secondsLeft + ") ثوانٍ...";
                 }
