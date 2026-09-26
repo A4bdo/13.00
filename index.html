@@ -6,9 +6,9 @@
     <title>ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* تنسيقات إضافية لضمان استقرار واجهة الكاش والأزرار الجديدة بالمنتصف */
+        /* 👁️ تنسيقات هادئة ومريحة جداً للعين لضمان أعلى استقرار بصري */
         .reset-btn {
-            background-color: #ff3333;
+            background-color: #d90429;
             color: white;
             border: none;
             padding: 8px 15px;
@@ -18,25 +18,24 @@
             margin-top: 10px;
             font-weight: bold;
         }
-        .reset-btn:hover { background-color: #cc0000; }
-        .status-loading { color: #ffcc00; font-weight: bold; }
-        .status-success { color: #25D366; font-weight: bold; }
+        .reset-btn:hover { background-color: #b3001b; }
+        .status-loading { color: #ffb703; font-weight: bold; }
+        .status-success { color: #2bc47a; font-weight: bold; }
 
-        /* 🌟 شريط الفحص العلوي الأسود لخاصية الـ Auto Exploit Selection */
+        /* 🌟 شريط الفحص العلوي بلون داكن ومريح وبدون توهج فاقع */
         .top-bar {
-            background: rgba(14, 17, 22, 0.95);
-            border-bottom: 2px solid #ffb703;
+            background: #141923;
+            border-bottom: 2px solid #e0a96d;
             padding: 12px;
             text-align: center;
             font-size: 18px;
             font-weight: bold;
-            color: #ffffff;
+            color: #f4f6f9;
             margin: -16px -16px 20px -16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            letter-spacing: 0.5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.6);
         }
 
-        /* 🎯 محاذاة وتوسيط كافة الأزرار بالملي في منتصف الشاشة بالتنسيق الـ VIP */
+        /* 🎯 محاذاة وتوسيط كامل للأزرار بالملي في منتصف الشاشة */
         #menu, #social_media, .sub-group {
             text-align: center !important;
             display: flex;
@@ -46,61 +45,63 @@
         }
         .btn {
             display: inline-block;
-            margin: 6px auto !important;
-            min-width: 280px;
+            margin: 7px auto !important;
+            min-width: 290px;
         }
 
-        /* 💛 تصميم وتوهج النيون للزر الأصفر التلقائي الفعال والمستقر */
+        /* 💛 تصميم الزر الأصفر التلقائي بألوان مطفية ناعمة لراحة العين */
         .multi-btn {
-            background: linear-gradient(135deg, #ffd166 0%, #ffb703 100%) !important;
-            color: #0b132b !important;
+            background: linear-gradient(135deg, #e0a96d 0%, #cca43b 100%) !important;
+            color: #1a1a1a !important;
             font-weight: bold !important;
-            border: 2px solid #ffb703 !important;
-            box-shadow: 0 0 15px rgba(255, 183, 3, 0.6) !important;
-            animation: pulseGlow 1.5s infinite ease-in-out;
+            border: 2px solid #e0a96d !important;
+            box-shadow: 0 4px 12px rgba(204, 164, 59, 0.3) !important;
+            transition: all 0.3s ease;
         }
         .multi-btn:hover {
-            background: linear-gradient(135deg, #ffb703 0%, #ffd166 100%) !important;
-            box-shadow: 0 0 25px rgba(255, 183, 3, 0.9) !important;
-            transform: scale(1.03);
+            background: linear-gradient(135deg, #cca43b 0%, #e0a96d 100%) !important;
+            box-shadow: 0 4px 18px rgba(204, 164, 59, 0.5) !important;
+            transform: scale(1.02);
         }
 
-        /* ⚙️ زر الخيارات المتقدمة والأدوات اليدوية المضيء بلون سماوي نيون */
+        /* ⚙️ زر الخيارات المتقدمة بلون أزرق بترولي هادئ جداً */
         .advanced-toggle-btn {
-            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%) !important;
+            background: linear-gradient(135deg, #2b5c8f 0%, #1c3d63 100%) !important;
             color: #ffffff !important;
             font-weight: bold !important;
-            border: 2px solid #00f5ff !important;
-            box-shadow: 0 0 12px rgba(0, 245, 255, 0.4) !important;
+            border: 2px solid #3b7bb5 !important;
+            box-shadow: 0 4px 12px rgba(43, 92, 143, 0.3) !important;
         }
         .advanced-toggle-btn:hover {
-            background: linear-gradient(135deg, #00f5ff 0%, #00b4d8 100%) !important;
-            box-shadow: 0 0 20px rgba(0, 245, 255, 0.7) !important;
+            background: linear-gradient(135deg, #3b7bb5 0%, #2b5c8f 100%) !important;
+            box-shadow: 0 4px 18px rgba(43, 92, 143, 0.5) !important;
         }
 
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 12px rgba(255, 183, 3, 0.5); }
-            50% { box-shadow: 0 0 22px rgba(255, 183, 3, 0.8); }
-            100% { box-shadow: 0 0 12px rgba(255, 183, 3, 0.5); }
-        }
-
-        /* 🔔 شارة عرض العداد الرقمي التنازلي التلقائي باللون الأصفر */
+        /* 🔔 صندوق العداد التنازلي التلقائي المطور (خلفية داكنة لإبراز خط العداد 100%) */
         .timer-badge {
-            background: rgba(255, 183, 3, 0.1) !important;
-            border: 1px solid #ffb703 !important;
-            color: #ffd166 !important;
-            padding: 10px 20px !important;
-            border-radius: 8px !important;
+            background: rgba(10, 15, 25, 0.95) !important;
+            border: 2px solid #cca43b !important;
+            color: #ffffff !important; /* خط أبيض ناصع وواضح جداً */
+            padding: 14px 28px !important;
+            border-radius: 10px !important;
             display: inline-block !important;
-            font-size: 15px !important;
+            font-size: 17px !important; /* تكبير الخط */
             font-weight: bold !important;
-            margin-top: 10px !important;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.8) !important;
+            margin-top: 15px !important;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8) !important;
+            letter-spacing: 0.5px;
+        }
+        
+        /* لون مميز ومتحرك لثواني العداد لتبدو واضحة وسط الكتابة */
+        .seconds-count {
+            color: #ffb703 !important;
+            font-size: 22px !important;
+            padding: 0 5px;
+            text-shadow: 0 0 5px rgba(255, 183, 3, 0.5);
         }
     </style>
 </head>
 <body>
-    <!-- 🔔 الشريط العلوي الذكي الفعال للفحص التلقائي -->
     <div id="topBar" class="top-bar">ME4OO PS STORE - (Auto Exploit Selection)</div>
 
     <h1 id="msgs" style="display:none;">ME4OO PS STORE</h1>
@@ -109,17 +110,16 @@
     <br>
     
     <div id="menu">
-        <!-- 1️⃣ الزرار الأول: الزر الأصفر العملاق والفعال للفحص والتنشيط التلقائي الفوري للأنظمة -->
+        <!-- الزرار الأصفر التلقائي الفعال والمCentered والمريح للعين -->
         <button class="btn multi-btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 GoldHEN Host - (Auto Exploit Selection)'" onclick="triggerAutoDetect()"> GoldHEN Multi FW </button>
         
-        <!-- حاوية عرض إشعار التايمر التنازلي التلقائي للمحل عند تنشيط الفحص -->
-        <div id="timerContainer" style="margin-top: 5px; min-height: 45px;"></div>
+        <!-- حاوية عرض إشعار التايمر التنازلي المطور المعزول بالخلفية الداكنة -->
+        <div id="timerContainer" style="margin-top: 5px; min-height: 55px;"></div>
         <br>
 
-        <!-- 2️⃣ الزرار الثاني الفعال: زر التبديل والتحكم لفتح القائمة اليدوية المخفية -->
+        <!-- زر فتح القائمة اليدوية المخفية بالأزرق الهادئ -->
         <button class="btn advanced-toggle-btn" onclick="toggleAdvancedMenu()">⚙️ خيارات الأنظمة اليدوية والأدوات</button>
         
-        <!-- حاوية قائمة الخيارات اليدوية والأدوات (مخفية افتراضياً لراحة رامات المتصفح) -->
         <div id="advancedMenu" style="display: none; margin-top: 10px; width: 100%;">
             <div class="sub-group" style="margin: 5px 0;">
                 <button class="btn" onclick="saveAndRedirect('505goldhen/index.html')"> GoldHEN لنظام 5.05 </button>
@@ -171,7 +171,7 @@
         var isCacheReady = false;
         var countdownTimer = null;
 
-        // دالة الزرار الثاني: فتح وإغلاق القائمة اليدوية بسلاسة وحماية الرام
+        // دالة الزرار الثاني للتحكم في فتح وإغلاق القائمة اليدوية
         function toggleAdvancedMenu() {
             var advMenu = document.getElementById("advancedMenu");
             if (advMenu.style.display === "none") {
@@ -198,14 +198,13 @@
             } catch(e) {}
         }
 
-        // 🌟 دالة الزرار الأول: الفحص الأوتوماتيكي الحقيقي الفعال من نواة المتصفح مباشرة
+        // 🌟 دالة الزرار الأول: الفحص الأوتوماتيكي الحقيقي والعداد المعزول الواضح جداً
         function triggerAutoDetect() {
             var uaFull = navigator.userAgent;
             var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);
             var isPS4 = match !== null;
             
-            // قراءة دقيقة للإصدار الصافي العشري من بصمة المتصفح
-            var fwVersion = isPS4 ? match[1] : "13.00"; 
+            var fwVersion = isPS4 ? match[1] : "13.00"; // قراءة الإصدار الصافي
             var fwNum = parseFloat(fwVersion);
             
             var topBar = document.getElementById("topBar");
@@ -214,7 +213,7 @@
 
             if (topBar) topBar.innerHTML = "⏳ جاري فحص نواة النظام... تم اكتشاف إصدار: PS4 " + fwVersion;
 
-            // هندسة توجيه الأجهزة الذكية للمجلدات الفعلية المستقرة عندك
+            // توجيه الأجهزة للمجلدات الفعلية المستقرة عندك
             if (fwNum >= 5.05 && fwNum <= 13.00) {
                 targetPath = "g2all/index.html";
             } else if (fwNum >= 13.02 && fwNum <= 13.52) {
@@ -224,20 +223,20 @@
                 return;
             }
 
-            // تشغيل التايمر التنازلي الحقيقي (3 ثوانٍ أمان تام لاستقرار الرام)
+            // تفعيل العداد التنازلي بداخل صندوق حماية داكن وبخط عريض وبارز
             var secondsLeft = 3;
             if (timerContainer) {
-                timerContainer.innerHTML = '<div id="timerMsg" class="timer-badge">⏳ جاري تهيئة ذاكرة المتصفح.. الدخول التلقائي خلال (' + secondsLeft + ') ثوانٍ...</div>';
+                timerContainer.innerHTML = '<div id="timerMsg" class="timer-badge">⏳ جاري تهيئة الذاكرة.. الدخول التلقائي خلال (<span id="secondsCount" class="seconds-count">' + secondsLeft + '</span>) ثوانٍ...</div>';
             }
 
             countdownTimer = setInterval(function() {
                 secondsLeft--;
-                var timerMsg = document.getElementById("timerMsg");
+                var secondsCount = document.getElementById("secondsCount");
                 if (secondsLeft <= 0) {
                     clearInterval(countdownTimer);
-                    saveAndRedirect(targetPath); // تحويل طلقة بدون جليتش المساحة ممتلئة
+                    saveAndRedirect(targetPath); // انتقال سريع وآمن
                 } else {
-                    if(timerMsg) timerMsg.innerHTML = "⏳ جاري تهيئة ذاكرة المتصفح.. الدخول التلقائي خلال (" + secondsLeft + ") ثوانٍ...";
+                    if(secondsCount) secondsCount.innerHTML = secondsLeft;
                 }
             }, 1000);
         }
