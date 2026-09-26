@@ -6,7 +6,7 @@
     <title>ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* 👁️ تنسيقات هادئة ومريحة جداً للعين لضمان أعلى استقرار بصري */
+        /* 👁️ تنسيقات هادئة ومريحة للعين مع تكبير النصوص الأساسية */
         .reset-btn {
             background-color: #d90429;
             color: white;
@@ -19,8 +19,10 @@
             font-weight: bold;
         }
         .reset-btn:hover { background-color: #b3001b; }
-        .status-loading { color: #ffb703; font-weight: bold; }
-        .status-success { color: #2bc47a; font-weight: bold; }
+        
+        /* تكبير وإبراز جمل حالة التحقق والكاش بلون أخضر فوسفوري واضح جداً */
+        .status-loading { color: #ffb703; font-weight: bold; font-size: 18px !important; }
+        .status-success { color: #2bc47a; font-weight: bold; font-size: 19px !important; text-shadow: 0 0 4px rgba(43,196,122,0.4); }
 
         /* 🌟 شريط الفحص العلوي بلون داكن ومريح وبدون توهج فاقع */
         .top-bar {
@@ -81,18 +83,17 @@
         .timer-badge {
             background: rgba(10, 15, 25, 0.95) !important;
             border: 2px solid #cca43b !important;
-            color: #ffffff !important; /* خط أبيض ناصع وواضح جداً */
+            color: #ffffff !important;
             padding: 14px 28px !important;
             border-radius: 10px !important;
             display: inline-block !important;
-            font-size: 17px !important; /* تكبير الخط */
+            font-size: 17px !important;
             font-weight: bold !important;
             margin-top: 15px !important;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8) !important;
             letter-spacing: 0.5px;
         }
         
-        /* لون مميز ومتحرك لثواني العداد لتبدو واضحة وسط الكتابة */
         .seconds-count {
             color: #ffb703 !important;
             font-size: 22px !important;
@@ -104,20 +105,18 @@
 <body>
     <div id="topBar" class="top-bar">ME4OO PS STORE - (Auto Exploit Selection)</div>
 
-    <h1 id="msgs" style="display:none;">ME4OO PS STORE</h1>
-    <h2 id="msgs2" style="text-align: center;">امانه عليك تصلي على حبيبك النبي</h2>
-    <div id="cacheStatus" class="status-loading" style="font-size: 16px; margin-top: 5px; text-align: center;">⏳ جاري التحقق من ملفات النظام...</div>
+    <h1 id="msgs">ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب</h1>
+    <!-- 🟢 تكبير جملة الصلاة على النبي كلياً وتلوينها بالأخضر المريح والواضح جداً للزبون -->
+    <h2 id="msgs2" style="text-align: center; font-size: 32px !important; color: #2bc47a !important; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.6); margin: 15px 0;">امانه عليك تصلي على حبيبك النبي</h2>
+    <div id="cacheStatus" class="status-loading" style="margin-top: 5px; text-align: center;">⏳ جاري التحقق من ملفات النظام...</div>
     <br>
     
     <div id="menu">
-        <!-- الزرار الأصفر التلقائي الفعال والمCentered والمريح للعين -->
         <button class="btn multi-btn" onmouseover="document.getElementById('topBar').innerHTML='PS4 GoldHEN Host - (Auto Exploit Selection)'" onclick="triggerAutoDetect()"> GoldHEN Multi FW </button>
         
-        <!-- حاوية عرض إشعار التايمر التنازلي المطور المعزول بالخلفية الداكنة -->
         <div id="timerContainer" style="margin-top: 5px; min-height: 55px;"></div>
         <br>
 
-        <!-- زر فتح القائمة اليدوية المخفية بالأزرق الهادئ -->
         <button class="btn advanced-toggle-btn" onclick="toggleAdvancedMenu()">⚙️ خيارات الأنظمة اليدوية والأدوات</button>
         
         <div id="advancedMenu" style="display: none; margin-top: 10px; width: 100%;">
@@ -171,7 +170,6 @@
         var isCacheReady = false;
         var countdownTimer = null;
 
-        // دالة الزرار الثاني للتحكم في فتح وإغلاق القائمة اليدوية
         function toggleAdvancedMenu() {
             var advMenu = document.getElementById("advancedMenu");
             if (advMenu.style.display === "none") {
@@ -198,13 +196,12 @@
             } catch(e) {}
         }
 
-        // 🌟 دالة الزرار الأول: الفحص الأوتوماتيكي الحقيقي والعداد المعزول الواضح جداً
         function triggerAutoDetect() {
             var uaFull = navigator.userAgent;
             var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);
             var isPS4 = match !== null;
             
-            var fwVersion = isPS4 ? match[1] : "13.00"; // قراءة الإصدار الصافي
+            var fwVersion = isPS4 ? match[1] : "13.00"; 
             var fwNum = parseFloat(fwVersion);
             
             var topBar = document.getElementById("topBar");
@@ -213,7 +210,6 @@
 
             if (topBar) topBar.innerHTML = "⏳ جاري فحص نواة النظام... تم اكتشاف إصدار: PS4 " + fwVersion;
 
-            // توجيه الأجهزة للمجلدات الفعلية المستقرة عندك
             if (fwNum >= 5.05 && fwNum <= 13.00) {
                 targetPath = "g2all/index.html";
             } else if (fwNum >= 13.02 && fwNum <= 13.52) {
@@ -223,7 +219,6 @@
                 return;
             }
 
-            // تفعيل العداد التنازلي بداخل صندوق حماية داكن وبخط عريض وبارز
             var secondsLeft = 3;
             if (timerContainer) {
                 timerContainer.innerHTML = '<div id="timerMsg" class="timer-badge">⏳ جاري تهيئة الذاكرة.. الدخول التلقائي خلال (<span id="secondsCount" class="seconds-count">' + secondsLeft + '</span>) ثوانٍ...</div>';
@@ -234,7 +229,7 @@
                 var secondsCount = document.getElementById("secondsCount");
                 if (secondsLeft <= 0) {
                     clearInterval(countdownTimer);
-                    saveAndRedirect(targetPath); // انتقال سريع وآمن
+                    saveAndRedirect(targetPath);
                 } else {
                     if(secondsCount) secondsCount.innerHTML = secondsLeft;
                 }
@@ -255,7 +250,6 @@
             } catch(e) {}
         }
 
-        // ========== منظومة الكاش والـ AppCache الآمنة والمستقرة لمنع الكراش ==========
         var appCache = window.applicationCache;
         if (appCache) {
             appCache.addEventListener('checking', function() { cacheStatus.innerHTML = '⏳ جاري فحص ملفات الهوست بالتخزين المؤقت...'; }, false);
@@ -267,9 +261,9 @@
                 }
             }, false);
             appCache.addEventListener('cached', function() { isCacheReady = true; cacheStatus.innerHTML = '✅ تم تثبيت كاش المحل بنجاح أوفلاين! اختر النظام الآن لبدء تشغيل آمن.'; cacheStatus.className = 'status-success'; checkAutoRedirect(); }, false);
-            appCache.addEventListener('noupdate', function() { isCacheReady = true; cacheStatus.innerHTML = '✅ ملفات الهوست جاهزة ومستقرة أوفلاين داخل المتصفح.'; cacheStatus.className = 'status-success'; checkAutoRedirect(); }, false);
+            appCache.addEventListener('noupdate', function() { isCacheReady = true; cacheStatus.innerHTML = '⚙️ المتصفح جاهز ومستقر للتشغيل المباشر.'; cacheStatus.className = 'status-success'; checkAutoRedirect(); }, false);
             appCache.addEventListener('updateready', function() { try { appCache.swapCache(); } catch (e) {} cacheStatus.innerHTML = '🔄 تم تحديث السورس، جاري تحديث الصفحة فوراً...'; setTimeout(function() { location.reload(); }, 500); }, false);
-            appCache.addEventListener('error', function() { isCacheReady = true; cacheStatus.innerHTML = '⚠️ تشغيل مباشر عبر الشبكة (الخادم أوفلاين حالياً).'; checkAutoRedirect(); }, false);
+            appCache.addEventListener('error', function() { isCacheReady = true; cacheStatus.innerHTML = '⚙️ المتصفح جاهز ومستقر للتشغيل المباشر.'; checkAutoRedirect(); }, false);
         } else {
             isCacheReady = true; cacheStatus.innerHTML = '⚙️ المتصفح جاهز ومستقر للتشغيل المباشر.'; checkAutoRedirect();
         }
