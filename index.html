@@ -20,9 +20,9 @@
         }
         .reset-btn:hover { background-color: #b3001b; }
         
-        /* تكبير وإبراز جمل حالة التحقق والكاش بلون أخضر فوسفوري واضح جداً */
-        .status-loading { color: #ffb703; font-weight: bold; font-size: 18px !important; }
-        .status-success { color: #2bc47a; font-weight: bold; font-size: 19px !important; text-shadow: 0 0 4px rgba(43,196,122,0.4); }
+        /* 🟢 تكبير وإبراز جمل حالة التحقق والكاش بلون أخضر فوسفوري ناصع وضخم جداً للمحل */
+        .status-loading { color: #ffb703; font-weight: bold; font-size: 20px !important; }
+        .status-success { color: #2bc47a !important; font-weight: bold !important; font-size: 24px !important; text-shadow: 0 0 8px rgba(43,196,122,0.6); }
 
         /* 🌟 شريط الفحص العلوي بلون داكن ومريح وبدون توهج فاقع */
         .top-bar {
@@ -106,7 +106,6 @@
     <div id="topBar" class="top-bar">ME4OO PS STORE - (Auto Exploit Selection)</div>
 
     <h1 id="msgs">ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب</h1>
-    <!-- 🟢 تكبير جملة الصلاة على النبي كلياً وتلوينها بالأخضر المريح والواضح جداً للزبون -->
     <h2 id="msgs2" style="text-align: center; font-size: 32px !important; color: #2bc47a !important; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.6); margin: 15px 0;">امانه عليك تصلي على حبيبك النبي</h2>
     <div id="cacheStatus" class="status-loading" style="margin-top: 5px; text-align: center;">⏳ جاري التحقق من ملفات النظام...</div>
     <br>
@@ -250,22 +249,24 @@
             } catch(e) {}
         }
 
+        // ========== منظومة الكاش والـ AppCache الآمنة والمعدلة بالألوان الضخمة والناصعة ==========
         var appCache = window.applicationCache;
         if (appCache) {
-            appCache.addEventListener('checking', function() { cacheStatus.innerHTML = '⏳ جاري فحص ملفات الهوست بالتخزين المؤقت...'; }, false);
-            appCache.addEventListener('downloading', function() { cacheStatus.innerHTML = '📥 أول زيارة: جاري تنزيل ملفات الكاش المؤقت لحماية متصفحك...'; }, false);
+            appCache.addEventListener('checking', function() { cacheStatus.innerHTML = '⏳ جاري فحص ملفات الهوست بالتخزين المؤقت...'; cacheStatus.className = 'status-loading'; }, false);
+            appCache.addEventListener('downloading', function() { cacheStatus.innerHTML = '📥 أول زيارة: جاري تنزيل ملفات الكاش المؤقت لحماية متصفحك...'; cacheStatus.className = 'status-loading'; }, false);
             appCache.addEventListener('progress', function(e) {
                 if (e && e.total) {
                     var pct = Math.round((e.loaded / e.total) * 100);
                     cacheStatus.innerHTML = '📥 جاري حفظ ملفات الهوست أوفلاين ' + pct + '%... برجاء الانتظار لمنع تعليق المتصفح';
+                    cacheStatus.className = 'status-loading';
                 }
             }, false);
-            appCache.addEventListener('cached', function() { isCacheReady = true; cacheStatus.innerHTML = '✅ تم تثبيت كاش المحل بنجاح أوفلاين! اختر النظام الآن لبدء تشغيل آمن.'; cacheStatus.className = 'status-success'; checkAutoRedirect(); }, false);
+            appCache.addEventListener('cached', function() { isCacheReady = true; cacheStatus.innerHTML = '⚙️ المتصفح جاهز ومستقر للتشغيل المباشر أوفلاين.'; cacheStatus.className = 'status-success'; checkAutoRedirect(); }, false);
             appCache.addEventListener('noupdate', function() { isCacheReady = true; cacheStatus.innerHTML = '⚙️ المتصفح جاهز ومستقر للتشغيل المباشر.'; cacheStatus.className = 'status-success'; checkAutoRedirect(); }, false);
-            appCache.addEventListener('updateready', function() { try { appCache.swapCache(); } catch (e) {} cacheStatus.innerHTML = '🔄 تم تحديث السورس، جاري تحديث الصفحة فوراً...'; setTimeout(function() { location.reload(); }, 500); }, false);
-            appCache.addEventListener('error', function() { isCacheReady = true; cacheStatus.innerHTML = '⚙️ المتصفح جاهز ومستقر للتشغيل المباشر.'; checkAutoRedirect(); }, false);
+            appCache.addEventListener('updateready', function() { try { appCache.swapCache(); } catch (e) {} cacheStatus.innerHTML = '🔄 تم تحديث السورس، جاري تحديث الصفحة فوراً...'; cacheStatus.className = 'status-loading'; setTimeout(function() { location.reload(); }, 500); }, false);
+            appCache.addEventListener('error', function() { isCacheReady = true; cacheStatus.innerHTML = '⚙️ المتصفح جاهز ومستقر للتشغيل المباشر.'; cacheStatus.className = 'status-success'; checkAutoRedirect(); }, false);
         } else {
-            isCacheReady = true; cacheStatus.innerHTML = '⚙️ المتصفح جاهز ومستقر للتشغيل المباشر.'; checkAutoRedirect();
+            isCacheReady = true; cacheStatus.innerHTML = '⚙️ المتصفح جاهز ومستقر للتشغيل المباشر.'; cacheStatus.className = 'status-success'; checkAutoRedirect();
         }
 
         function show_social(){ document.getElementById("social_media").style.display = "block"; document.getElementById("menu").style.display = "none"; }
