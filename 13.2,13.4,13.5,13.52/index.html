@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ME4OO PS STORE - 13.52 FW Stable</title>
     <style>
-        /* 👁️ تنسيق السنتر الكامل لراحة العين باللون الأبيض الناصع والصريح */
+        /* 👁️ حقن كود ربط واستدعاء صور وخلفية محل ME4OO الفخمة بالمسارات المحلية */
         body {
-            background-color: #0b132b;
+            background-image: url("img.jpg") !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            background-attachment: fixed !important;
             color: #ffffff;
             font-family: sans-serif;
             text-align: center;
@@ -18,14 +22,17 @@
             min-height: 100vh;
             margin: 0;
         }
+        
+        /* جعل الصندوق شفاف وناعم VIP لإبراز الخلفية وصورة دراع الـ PS4 وراه */
         .main-container {
-            background: rgba(20, 25, 35, 0.95);
+            background: rgba(14, 19, 31, 0.85) !important;
             border: 2px solid #e0a96d;
             padding: 35px;
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.8);
             min-width: 340px;
         }
+        
         .loader-bar {
             border: 5px solid rgba(224, 169, 109, 0.1);
             border-radius: 50%;
@@ -58,13 +65,13 @@
 </head>
 <body>
     <div class="main-container">
-        <!-- براند المحل الفخم بالسنتر وبخط أبيض عريض -->
+        <!-- براند المحل الفخم مCentered وبخط أبيض عريض فوق الخلفية -->
         <h1 style="color: #e0a96d; font-size: 28px; margin-bottom: 5px; font-weight: bold;">ME4OO PS STORE</h1>
-        <!-- جملة الصلاة على النبي باللون الأبيض الصريح الضخم -->
+        <!-- جملة الصلاة على النبي باللون الأبيض الصريح الضخم لراحة العين -->
         <h2 style="color: #ffffff !important; font-size: 24px; margin-bottom: 20px; font-weight: bold;">امانه عليك تصلي على حبيبك النبي</h2>
         
         <div class="loader-bar"></div>
-        <!-- نص فحص الإصدار التفاعلي المستقر -->
+        <!-- نص فحص الإصدار التفاعلي المستقر كلياً بالأبيض -->
         <div id="state" class="status-txt">⏳ جاري فحص إصدار النظام وتفعيل الجيلبريك المستقر...</div>
         <!-- رقم الدعم الفني الخاص بمحلك باللون الأبيض الصريح -->
         <div class="support-link">💬 للدعم الفني للمحل: 01002342554</div>
@@ -78,7 +85,7 @@
     <script src="jb.js"></script>
     
     <script>
-        // دالة تفعيل الأوفلاين الفوري عند تحميل واجهة السوفت الجديد
+        // دالة تفعيل الأوفلاين الفوري والمستقر كلياً
         window.onload = function() {
             setTimeout(function() {
                 if (typeof create_payload === "function") {
