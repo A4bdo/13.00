@@ -1,139 +1,95 @@
 <!DOCTYPE html>
-<html lang="ar" manifest="cache.appcache">
+<html lang="ar">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ME4OO PS STORE لخدمات وصيانة البلايستيشن وتنزيل الألعاب</title>
-<style>
-  html, body { 
-    margin: 0; 
-    padding: 0; 
-    color: #c8ced8; 
-    font: 15px/1.45 "Segoe UI", system-ui, sans-serif;
-    background-image: url('img.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    min-height: 100vh;
-  }
-  #wrap { padding:16px 18px; text-align: center; }
-  #state { font-size:24px; font-weight:700; margin:15px 0 6px; }
-  #det { font-size:15px; color:#8b95a3; margin:0 0 8px; }
-  #det b { color:#ffcc00; font-weight:600; }
-  #cache { font-size:14px; color:#a2a8b3; margin:0 0 10px; min-height:14px; font-weight: bold; }
-  #cache.cacheok { color:#25D366; }
-  .ok { color:#25D366; } .bad { color:#ff3333; } .warn { color:#ffcc00; }
-  #brand { text-align:center; padding:12px 10px; background:rgba(14, 17, 22, 0.85);
-           border-bottom:1px solid #1e2732; }
-  #brand img { width:32px; height:32px; margin-right:8px; border-radius:50%;
-               vertical-align:middle; }
-  #brand b { font-size:18px; font-weight:700; letter-spacing:.12em;
-             color:#e6ebf2; vertical-align:middle; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ME4OO PS STORE - 13.52 FW Stable</title>
+    <style>
+        /* 👁️ تنسيق السنتر الكامل لراحة العين باللون الأبيض الناصع والصريح */
+        body {
+            background-color: #0b132b;
+            color: #ffffff;
+            font-family: sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .main-container {
+            background: rgba(20, 25, 35, 0.95);
+            border: 2px solid #e0a96d;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+            min-width: 340px;
+        }
+        .loader-bar {
+            border: 5px solid rgba(224, 169, 109, 0.1);
+            border-radius: 50%;
+            border-top: 5px solid #ffffff;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 25px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .status-txt {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff !important;
+            margin-top: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+        .support-link {
+            color: #ffffff !important;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-<!-- شعار وواجهة المحل الجديد المطور كلياً لـ ME4OO PS STORE -->
-<div id="brand"><img src="logo.png" alt="ME4OO PS STORE" width="32" height="32"><b>ME4OO PS STORE</b></div>
-<div id="wrap">
-  <h2 style="color: yellow; margin: 0 0 15px 0;">امانه عليك تصلي على حبيبك النبي</h2>
-  <div id="state">⏳ جاري فحص إصدار النظام...</div>
-  <div id="det"></div>
-  <div id="cache"></div>
-  <div style="color: #25D366; font-size: 18px; font-weight: bold; margin-top: 40px;">💬 للدعم الفني للمحل: 01002342554</div>
-</div>
+    <div class="main-container">
+        <!-- براند المحل الفخم بالسنتر وبخط أبيض عريض -->
+        <h1 style="color: #e0a96d; font-size: 28px; margin-bottom: 5px; font-weight: bold;">ME4OO PS STORE</h1>
+        <!-- جملة الصلاة على النبي باللون الأبيض الصريح الضخم -->
+        <h2 style="color: #ffffff !important; font-size: 24px; margin-bottom: 20px; font-weight: bold;">امانه عليك تصلي على حبيبك النبي</h2>
+        
+        <div class="loader-bar"></div>
+        <!-- نص فحص الإصدار التفاعلي المستقر -->
+        <div id="state" class="status-txt">⏳ جاري فحص إصدار النظام وتفعيل الجيلبريك المستقر...</div>
+        <!-- رقم الدعم الفني الخاص بمحلك باللون الأبيض الصريح -->
+        <div class="support-link">💬 للدعم الفني للمحل: 01002342554</div>
+    </div>
 
-<script>
-(function () {
-    var stateEl = document.getElementById("state");
-    var detEl = document.getElementById("det");
-    var cacheEl = document.getElementById("cache");
-    function setState(t, c) { stateEl.textContent = t; stateEl.className = c || ""; }
-    function setCache(t, ok) { cacheEl.textContent = t; cacheEl.className = ok ? "cacheok" : ""; }
-    var params = new URLSearchParams(location.search);
-
-    // دمج حاسبة الفحص التلقائي المستقرة والمباشرة من كود GamerHack لقراءة السوفتوير كقيمة عشرية نقية
-    var uaFull = navigator.userAgent;
-    var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);
-    var isPS4 = match !== null;
-    var fwVersion = isPS4 ? match[1] : "Unknown";
-    var fwNum = parseFloat(fwVersion);
-
-    // شرط فحص ذكي وموسع يقبل جهاز التجربة 13.00 وحتى أحدث إصدار مدعوم 13.52 بأمان تني للأنوية
-    var forced = params.get("force") === "1";
-    var supported = forced || (isPS4 && fwNum >= 13.00 && fwNum <= 13.52);
+    <!-- ربط ملفات فريق RAW GAME المنفصلة بالترتيب البرمجي السليم لراحة الرام -->
+    <script src="ps4_offsets.js"></script>
+    <script src="int64.js"></script>
+    <script src="mem.js"></script>
+    <script src="core.js"></script>
+    <script src="jb.js"></script>
     
-    detEl.innerHTML = "إصدار السوفتوير الفعلي للمنصة: <b>" + fwVersion + "</b>"
-        + (supported ? " &middot; <b class='ok'>مدعوم ومستقر كلياً</b>"
-                     : " &middot; ليس في جدول أنوية هذا البناء البرمجي");
-
-    var target = "jb.html" + location.search;
-    function go() { setState("🚀 جاري بدء تشغيل الـ Jailbreak وحقن الـ GoldHEN الجديد...", "ok"); location.replace(target); }
-
-    function waitForTap(msg, action) {
-        setState(msg, "warn");
-        function fire() {
-            window.removeEventListener("click", fire);
-            window.removeEventListener("keydown", fire);
-            action();
-        }
-        window.addEventListener("click", fire);
-        window.addEventListener("keydown", fire);
-    }
-
-    if (!supported) {
-        setState("❌ نظام غير مدعوم حالياً", "bad");
-        waitForTap("إصدار غير معروف (" + fwVersion + ") -- اضغط على زر X لتخطي الفحص والتشغيل يدوياً", go);
-        return;
-    }
-
-    // منظومة الكاش والأوفلاين المستقرة لمنع تعليق معالج الـ Webkit
-    var ac = window.applicationCache;
-    if (!ac || !document.documentElement.hasAttribute("manifest")) {
-        go();
-    } else if (!navigator.onLine) {
-        setCache("✅ تم تحميل البيانات بنجاح أوفلاين (بدون إنترنت).", true);
-        go();
-    } else if (ac.status === ac.IDLE) {
-        setCache("✅ ملفات الكاش جاهزة ومحدثة تماماً داخل النظام.", true);
-        go();
-    } else if (ac.status === ac.UPDATEREADY) {
-        try { ac.swapCache(); } catch (e) {}
-        setCache("🔄 تم تحميل التحديثات بنجاح.", true);
-        waitForTap("التحديث جاهز -- اضغط X لإعادة تحميل الصفحة وتشغيل الهوست الجديد",
-                   function () { location.reload(); });
-    } else {
-        setCache("⏳ جاري التحقق من التخزين المؤقت للمتصفح...");
-        ac.addEventListener("downloading",
-            function () { setCache("📥 جاري تثبيت كاش الملفات أوفلاين للمرة الأولى (حماية من الكراش)..."); }, false);
-        ac.addEventListener("progress", function (e) {
-            if (e && e.total)
-                setCache("📥 جاري التثبيت وحفظ البيانات: " + Math.round((e.loaded / e.total) * 100) + "%");
-        }, false);
-        ac.addEventListener("cached", function () {
-            setCache("✅ تم حفظ كاش المتجر أوفلاين كلياً داخل المنصة.", true);
-            waitForTap("اكتمل التثبيت بنجاح -- اضغط X لبدء التفعيل المستقر للثغرة", go);
-        }, false);
-        ac.addEventListener("updateready", function () {
-            try { ac.swapCache(); } catch (e) {}
-            setCache("🔄 تم تنزيل التعديل الجديد كلياً للمحل.", true);
-            waitForTap("الملفات جاهزة -- اضغط X لإنعاش السورس والتشغيل الآمن",
-                       function () { location.reload(); });
-        }, false);
-        ac.addEventListener("noupdate", function () {
-            setCache("✅ ملفات الكاش مستقرة أوفلاين ومحمية.", true);
-            go();
-        }, false);
-        ac.addEventListener("error", function () {
-            setCache("⚠️ الكاش المحلي غير متصل (يعمل عبر الشبكة حالياً).");
-            waitForTap("فشل الاتصال بالكاش -- اضغط X للتشغيل المباشر", go);
-        }, false);
-        ac.addEventListener("obsolete", function () {
-            setCache("⚠️ ملفات الكاش القديمة منتهية الصلاحية.");
-            waitForTap("كاش قديم -- اضغط X للإنعاش وبدء العمل على البناء الجديد", go);
-        }, false);
-    }
-})();
-</script>
+    <script>
+        // دالة تفعيل الأوفلاين الفوري عند تحميل واجهة السوفت الجديد
+        window.onload = function() {
+            setTimeout(function() {
+                if (typeof create_payload === "function") {
+                    // سحب ملف البيلود الذهبي محلياً من كاش الجهاز طلقة
+                    create_payload("goldhen.bin");
+                } else {
+                    var stateDiv = document.getElementById("state");
+                    if(stateDiv) stateDiv.innerHTML = "❌ خطأ برمي: ملف الثغرة jb.js غير معرّف أو ناقص أوفلاين!";
+                }
+            }, 400); // مهلة أمان قصيرة جداً لتهيئة الـ Webkit ومنع رسائل المساحة
+        };
+    </script>
 </body>
 </html>
